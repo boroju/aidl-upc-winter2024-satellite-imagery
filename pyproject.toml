@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "aidl-upc-winter2024-satellite-imagery"
+version = "1.0.0"
+description = "UPC Artificial Intelligence with Deep Learning Postgraduate course | Winter2024 | Final project on Satellite Imagery"
+authors = ["Julian Boronat <julian.boronat@adevinta.com>"]
+readme = "docs/README.md"
+
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
