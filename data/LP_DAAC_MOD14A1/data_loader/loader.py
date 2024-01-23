@@ -33,7 +33,7 @@ def download_images_from_txt(txt_file, destination_folder):
 
 if __name__ == "__main__":
     # Get the project directory path (go back two levels from the current script location)
-    project_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+    project_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
 
     # Change to the project directory
     os.chdir(project_directory)
