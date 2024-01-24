@@ -5,7 +5,7 @@ from typing import Tuple
 from utils import compute_accuracy
 from model import WildfireBinClassifier
 from test_model import test_single_epoch, test_model
-from eval_model import eval_single_epoch
+from val_model import val_single_epoch
 import matplotlib
 
 matplotlib.use('agg')  # Cambiado a 'agg'
@@ -27,7 +27,7 @@ def train_single_epoch(train_loader: torch.utils.data.DataLoader,
                        epoch: int,
                        log_interval: int,
                        ) -> Tuple[float, float]:
-    # Activate the train = True flag inside the model
+    # Activate the train=True flag inside the model
     my_model.train()
 
     train_loss = []
@@ -67,41 +67,36 @@ def train_single_epoch(train_loader: torch.utils.data.DataLoader,
 
 
 def train_model(train_loader: torch.utils.data.DataLoader,
+                val_loader: torch.utils.data.DataLoader,
                 test_loader: torch.utils.data.DataLoader,
-                eval_loader: torch.utils.data.DataLoader,
                 hparams: dict
                 ) -> WildfireBinClassifier:
     train_losses = []
     train_accs = []
-    test_losses = []
-    test_accs = []
     val_losses = []
     val_accs = []
 
     my_model = WildfireBinClassifier().to(device)
 
-    optimizer = torch.optim.Adam(my_model.parameters(), lr=hparams['learning_rate'],
-                                 weight_decay=hparams['weight_decay'])
+    optimizer = torch.optim.Adam(my_model.parameters(), lr=hparams['learning_rate'], weight_decay=hparams['weight_decay'])
     criterion = nn.CrossEntropyLoss()
 
     for epoch in range(hparams['num_epochs']):
+
         # Compute & save the average training loss for the current epoch
-        train_loss, train_acc = train_single_epoch(train_loader, my_model, optimizer, criterion, epoch,
-                                                   hparams["log_interval"])
+        train_loss, train_acc = train_single_epoch(
+            train_loader=train_loader,
+            my_model=my_model,
+            optimizer=optimizer,
+            criterion=criterion,
+            epoch=epoch,
+            log_interval=hparams["log_interval"]
+        )
         train_losses.append(train_loss)
         train_accs.append(train_acc)
 
-        # Compute & save the average test loss & accuracy for the current epoch
-        test_loss, test_acc = test_single_epoch(
-            test_loader=test_loader,
-            my_model=my_model,
-            criterion=criterion
-        )
-        test_losses.append(test_loss)
-        test_accs.append(test_acc)
-
-        val_loss, val_acc = eval_single_epoch(
-            eval_loader=eval_loader,
+        val_loss, val_acc = val_single_epoch(
+            val_loader=val_loader,
             my_model=my_model,
             criterion=criterion
         )

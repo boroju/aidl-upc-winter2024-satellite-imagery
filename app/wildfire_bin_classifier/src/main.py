@@ -67,8 +67,8 @@ if __name__ == "__main__":
                                               drop_last=True)
 
     eval_data = ImageFolder(valid_path, transform=image_transforms, is_valid_file=check_image)
-    eval_loader = torch.utils.data.DataLoader(dataset=eval_data, batch_size=hparams['batch_size'], shuffle=False,
-                                              drop_last=True)
+    val_loader = torch.utils.data.DataLoader(dataset=eval_data, batch_size=hparams['batch_size'], shuffle=False,
+                                             drop_last=True)
 
     # Retrieve a sample from the dataset by simply indexing it
     img, label = train_data[0]
@@ -94,10 +94,27 @@ if __name__ == "__main__":
     print("Val:")
     print(f"Found {len(eval_data)} images belonging to {eval_data.classes} classes.")
 
-    my_model = train_model(train_loader, test_loader, eval_loader, hparams).to(device)
+    # Get the current directory
+    current_dir = os.getcwd()
+    print(f"Current directory: {current_dir}")
+
+    # Specify the relative path from the current directory to the target directory
+    relative_path = "aidl-upc-winter2024-satellite-imagery/app/wildfire_bin_classifier/src/checkpoints"
+    print(f"Relative path: {relative_path}")
+
+    # Checkpoints directory
+    checkpoints_dir = os.path.join(current_dir, relative_path)
+    # Change the current working directory to checkpoints directory
+    os.chdir(checkpoints_dir)
+    print(f"Checkpoints directory: {checkpoints_dir}")
+
+    my_model = train_model(train_loader=train_loader,
+                           val_loader=val_loader,
+                           test_loader=test_loader,
+                           hparams=hparams).to(device)
 
     # Save the model checkpoint
-    save_dir = "/checkpoints/my_model.pt"
-    print(f"Saving model to {save_dir}...")
-    save_model(my_model, save_dir)
+    save_path = "./my_model.pt"
+    print(f"Saving model to {checkpoints_dir}...")
+    save_model(my_model, save_path)
     print("Model saved successfully!")

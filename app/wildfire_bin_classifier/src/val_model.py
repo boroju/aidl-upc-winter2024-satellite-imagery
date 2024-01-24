@@ -13,8 +13,8 @@ if mps_available and mps_built:
 
 
 @torch.no_grad()  # decorator: avoid computing gradients
-def eval_single_epoch(
-        eval_loader: torch.utils.data.DataLoader,
+def val_single_epoch(
+        val_loader: torch.utils.data.DataLoader,
         my_model: torch.nn.Module,
         criterion: torch.nn.functional
         ) -> Tuple[float, float]:
@@ -24,7 +24,7 @@ def eval_single_epoch(
 
     eval_loss = []
     acc = 0
-    for data, target in eval_loader:
+    for data, target in val_loader:
         data, target = data.to(device), target.to(device)
 
         output = my_model(data)
@@ -36,9 +36,9 @@ def eval_single_epoch(
         acc += compute_accuracy(output, target)
 
     # Average accuracy across all correct predictions batches now
-    eval_acc = 100. * acc / len(eval_loader.dataset)
+    eval_acc = 100. * acc / len(val_loader.dataset)
     eval_loss = np.mean(eval_loss)
     print('\Validation set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
-        eval_loss, acc, len(eval_loader.dataset), eval_acc,
+        eval_loss, acc, len(val_loader.dataset), eval_acc,
         ))
     return eval_loss, eval_acc
