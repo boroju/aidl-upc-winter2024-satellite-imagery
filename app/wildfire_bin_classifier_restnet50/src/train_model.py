@@ -3,7 +3,8 @@ import torch
 import torch.nn as nn
 from typing import Tuple
 from utils import compute_accuracy
-from model import WildfireBinClassifier
+from torchvision.models.segmentation import deeplabv3_resnet50
+from torchvision.models import resnet50
 from test_model import test_single_epoch, test_model
 from val_model import val_single_epoch
 import matplotlib
@@ -11,24 +12,18 @@ import matplotlib
 matplotlib.use('agg')  # Cambiado a 'agg'
 import matplotlib.pyplot as plt
 
-# this ensures that the current MacOS version is at least 12.3+
-mps_available = torch.backends.mps.is_available()
-# this ensures that the current PyTorch installation was built with MPS activated.
-mps_built = torch.backends.mps.is_built()
-
-if mps_available and mps_built:
-    device = torch.device("mps")
+device = torch.device("cpu")
 
 
 def train_single_epoch(train_loader: torch.utils.data.DataLoader,
-                       my_model: torch.nn.Module,
+                       model: torch.nn.Module,
                        optimizer: torch.optim,
                        criterion: torch.nn.functional,
                        epoch: int,
                        log_interval: int,
                        ) -> Tuple[float, float]:
     # Activate the train=True flag inside the model
-    my_model.train()
+    model.train()
 
     train_loss = []
     acc = 0.
@@ -38,19 +33,19 @@ def train_single_epoch(train_loader: torch.utils.data.DataLoader,
         # Move input data and labels to the device
         data, target = data.to(device), target.to(device)
 
-        # Set my_model gradients to 0.
+        # Set model gradients to 0.
         optimizer.zero_grad()
 
-        # Forward batch of images through the my_model
-        output = my_model(data)
+        # Forward batch of images through the model
+        output = model(data).to(device)
 
         # Compute loss
-        loss = criterion(output, target)
+        loss = criterion(output.squeeze(), target.float())
 
         # Compute backpropagation
         loss.backward()
 
-        # Update parameters of the my_model
+        # Update parameters of the model
         optimizer.step()
 
         # Compute metrics
@@ -76,17 +71,22 @@ def train_model(train_loader: torch.utils.data.DataLoader,
     val_losses = []
     val_accs = []
 
-    my_model = WildfireBinClassifier().to(device)
+    # Define and load pre-trained ResNet50 model
+    model = resnet50(pretrained=True)
 
-    optimizer = torch.optim.Adam(my_model.parameters(), lr=hparams['learning_rate'], weight_decay=hparams['weight_decay'])
-    criterion = nn.CrossEntropyLoss()
+    # Change the output layer for binary classification
+    num_filters = model.fc.in_features
+    model.fc = nn.Linear(num_filters, 1)
+
+    # Define the optimizer and the loss function
+    optimizer = torch.optim.Adam(model.parameters(), lr=hparams['learning_rate'])
+    criterion = nn.BCEWithLogitsLoss()
 
     for epoch in range(hparams['num_epochs']):
-
         # Compute & save the average training loss for the current epoch
         train_loss, train_acc = train_single_epoch(
             train_loader=train_loader,
-            my_model=my_model,
+            model=model,
             optimizer=optimizer,
             criterion=criterion,
             epoch=epoch,
@@ -97,7 +97,7 @@ def train_model(train_loader: torch.utils.data.DataLoader,
 
         val_loss, val_acc = val_single_epoch(
             val_loader=val_loader,
-            my_model=my_model,
+            model=model,
             criterion=criterion
         )
         val_losses.append(val_loss)
@@ -105,7 +105,7 @@ def train_model(train_loader: torch.utils.data.DataLoader,
 
     final_test_loss, final_test_acc = test_model(
         test_loader=test_loader,
-        my_model=my_model,
+        model=model,
         criterion=criterion
     )
 
@@ -116,7 +116,7 @@ def train_model(train_loader: torch.utils.data.DataLoader,
     print('Final Test set: Average loss: {:.4f}, Accuracy: {:.2f}%'.format(
         final_test_loss, final_test_acc))
 
-    return my_model
+    return model
 
 
 def _plot_learning_curves(train_losses, train_accs, val_losses, val_accs):
