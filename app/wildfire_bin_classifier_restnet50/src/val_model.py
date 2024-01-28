@@ -29,7 +29,7 @@ def val_single_epoch(
         output = model(data)
 
         # Apply the loss criterion and accumulate the loss
-        eval_loss.append(criterion(output, target).item())
+        eval_loss.append(criterion(output.squeeze(), target.float()).item())
 
         # compute number of correct predictions in the batch
         acc += compute_accuracy(output, target)
