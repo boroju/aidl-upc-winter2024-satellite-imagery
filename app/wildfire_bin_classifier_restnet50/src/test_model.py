@@ -50,7 +50,7 @@ def test_model(test_loader: torch.utils.data.DataLoader,
 
         output = model(data)
 
-        loss_list.append(criterion(output, target).item())
+        loss_list.append(criterion(output.squeeze(), target.float()).item())
 
         acc += compute_accuracy(output, target)
 

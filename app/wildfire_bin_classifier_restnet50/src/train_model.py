@@ -3,9 +3,8 @@ import torch
 import torch.nn as nn
 from typing import Tuple
 from utils import compute_accuracy
-from torchvision.models.segmentation import deeplabv3_resnet50
 from torchvision.models import resnet50
-from test_model import test_single_epoch, test_model
+from test_model import test_model
 from val_model import val_single_epoch
 import matplotlib
 
