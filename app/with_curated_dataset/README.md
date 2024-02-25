@@ -40,15 +40,15 @@ Using Longitude and Latitude coordinates for each wildfire spot (> 0.01 acres bu
 
 Sample images of wildfire class:
 
-![sample_img_wildfire1](/Users/julianesteban.borona/Github/upc/projects/aidl-upc-winter2024-satellite-imagery/resources/img/kaggle_data/wildfire/-60.9878,50.4112.jpg)
+![sample_img_wildfire1](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/wildfire/-60.9878%2C50.4112.jpg)
 
-![sample_img_wildfire2](/Users/julianesteban.borona/Github/upc/projects/aidl-upc-winter2024-satellite-imagery/resources/img/kaggle_data/wildfire/-61.5607,50.52878.jpg)
+![sample_img_wildfire2](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/wildfire/-61.5607%2C50.52878.jpg)
 
 ### no_wildfire
 
-![sample_img_no_wildfire1](/Users/julianesteban.borona/Github/upc/projects/aidl-upc-winter2024-satellite-imagery/resources/img/kaggle_data/no_wildfire/-73.7181,45.486459.jpg)
+![sample_img_no_wildfire1](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/no_wildfire/-73.7181%2C45.486459.jpg)
 
-![sample_img_no_wildfire2](/Users/julianesteban.borona/Github/upc/projects/aidl-upc-winter2024-satellite-imagery/resources/img/kaggle_data/no_wildfire/-73.8275,45.552381.jpg)
+![sample_img_no_wildfire2](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/no_wildfire/-73.8275%2C45.552381.jpg)
 
 ## Goal
 
