@@ -30,28 +30,74 @@ The data was divided into train, test and validation with these percentages:
 - Test: ~15% (`wildfire`: 3480 images, `no_wildfire`: 2820 images)
 - Validation: ~15% (`wildfire`: 3480 images, `no_wildfire`: 2820 images)
 
-## How it looks
+## Collection Methodology
 
-Using Longitude and Latitude coordinates for each wildfire spot (> 0.01 acres burned) satellite images were extracted by using MapBox API to create a convenient format of the data for deep learning.
+Coordinates found in the source file and extracted satellite images using MapBox API to 350x350px .jpg images
 
 ### Classes
 
-### wildfire
+### 1- wildfire
 
 Sample images of wildfire class:
 
 <p float="left">
-  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/wildfire/-60.9878%2C50.4112.jpg" width="350" />
-  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/wildfire/-61.5607%2C50.52878.jpg" width="350" />
+  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/wildfire/-60.9878%2C50.4112.jpg" width="350" title="wildfire_img_1" />
+  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/wildfire/-61.5607%2C50.52878.jpg" width="350" title="wildfire_img_2" />
 </p>
 
-### no_wildfire
+### 2- no_wildfire
+
+Sample images of wildfire class:
 
 <p float="left">
-  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/no_wildfire/-73.7181%2C45.486459.jpg" width="350" />
-  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/no_wildfire/-73.8275%2C45.552381.jpg" width="350" />
+  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/no_wildfire/-73.7181%2C45.486459.jpg" width="350" title="nowildfire_img_1" />
+  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/no_wildfire/-73.8275%2C45.552381.jpg" width="350" title="nowildfire_img_2" />
 </p>
 
-## Goal
+### Goal
 
 Build a binary classifier model that can predict whether an area is at risk of a wildfire or not.
+
+### CNN Model Architecture
+
+#### Code
+
+Here
+
+#### Diagram
+
+<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/wildfire_bin_classifier/cnn_arch/diagram/wildfire_bin_classifier_archDiagram.png" title="wildfire_bin_classifier_arch" />
+
+#### Model Summary
+
+```python
+WildfireBinClassifier(
+  (conv1): ConvBlock(
+    (conv): Conv2d(3, 8, kernel_size=(2, 2), stride=(1, 1), bias=False)
+    (relu): ReLU(inplace=True)
+    (maxpool_2d): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (conv2): ConvBlock(
+    (conv): Conv2d(8, 16, kernel_size=(2, 2), stride=(1, 1), bias=False)
+    (relu): ReLU(inplace=True)
+    (maxpool_2d): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (conv3): ConvBlock(
+    (conv): Conv2d(16, 32, kernel_size=(2, 2), stride=(1, 1), bias=False)
+    (relu): ReLU(inplace=True)
+    (maxpool_2d): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (mlp): Sequential(
+    (0): Dropout(p=0.4, inplace=False)
+    (1): Linear(in_features=56448, out_features=2048, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.5, inplace=False)
+    (4): Linear(in_features=2048, out_features=300, bias=True)
+    (5): ReLU()
+    (6): Dropout(p=0.5, inplace=False)
+    (7): Linear(in_features=300, out_features=2, bias=True)
+    (8): ReLU()
+    (9): Softmax(dim=1)
+  )
+)
+```
