@@ -28,13 +28,13 @@ Original license for the data: [Creative Commons 4.0 Attribution (CC-BY) license
 This dataset contains satellite images (350x350px) in 2 classes:
 
 - `wildfire`: 22710 images
-- `no_wildfire`: 20140 images
+- `nowildfire`: 20140 images
 
 The data was divided into train, test and validation with these percentages:
 
-- Train: ~70% (`wildfire`: 15750 images, `no_wildfire`: 14500 images)
-- Test: ~15% (`wildfire`: 3480 images, `no_wildfire`: 2820 images)
-- Validation: ~15% (`wildfire`: 3480 images, `no_wildfire`: 2820 images)
+- Train: ~70% (`wildfire`: 15750 images, `nowildfire`: 14500 images)
+- Test: ~15% (`wildfire`: 3480 images, `nowildfire`: 2820 images)
+- Validation: ~15% (`wildfire`: 3480 images, `nowildfire`: 2820 images)
 
 ### Collection Methodology
 
@@ -51,13 +51,13 @@ Sample images of wildfire class:
   <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/wildfire/-61.5607%2C50.52878.jpg" width="350" title="wildfire_img_2" />
 </p>
 
-### 2- no_wildfire
+### 2- nowildfire
 
 Sample images of wildfire class:
 
 <p float="left">
-  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/no_wildfire/-73.7181%2C45.486459.jpg" width="350" title="nowildfire_img_1" />
-  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/no_wildfire/-73.8275%2C45.552381.jpg" width="350" title="nowildfire_img_2" />
+  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/nowildfire/-73.7181%2C45.486459.jpg" width="350" title="nowildfire_img_1" />
+  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/nowildfire/-73.8275%2C45.552381.jpg" width="350" title="nowildfire_img_2" />
 </p>
 
 ## CNN Model Architecture
@@ -164,4 +164,29 @@ Model checkpoint is available [here](https://drive.google.com/file/d/1dPMRYltQbw
 
 At this point, we successfully built a binary classifier model that can predict whether an area is at risk of a wildfire or not. This was accomplished from scratch using curated satellite imagery data.
 
-From a given satellite image with similar characteristics to the ones within the [curated dataset](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset), the model can predict the class (1 - 'wildfire' or 2 - 'no_wildfire') with an accuracy of 93.68%.
+From a given satellite image with similar characteristics to the ones within the [curated dataset](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset), the model can predict the class (1 - 'wildfire' or 2 - 'nowildfire') with an accuracy of 93.68%.
+
+### Inference
+
+Classes
+
+```python
+{'nowildfire': 0, 'wildfire': 1}
+```
+
+#### Example with class nowildfire
+
+Given image:
+
+<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/wildfire_bin_classifier/inference/-73.58813,45.482892.jpg" title="inference_class0" />
+
+Prediction: `nowildfire` ✅
+
+#### Example with class nowildfire
+
+Given image:
+
+<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/wildfire_bin_classifier/inference/-65.2239,49.10492.jpg" title="inference_class1" />
+
+Prediction: `wildfire` ✅
+
