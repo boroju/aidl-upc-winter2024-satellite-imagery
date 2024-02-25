@@ -9,6 +9,12 @@ We realized that constructing our satellite imagery dataset would be quite chall
 
 # Experiment A: Working with a curated dataset
 
+## Goal
+
+Build a binary classifier model that can predict whether an area is at risk of a wildfire or not.
+
+## Dataset
+
 After a few days of research, we found a curated dataset on [Kaggle](https://www.kaggle.com/). The dataset is called [Wildfire Prediction Dataset (Satellite Images)](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset). This dataset contains satellite images of areas that previously experienced wildfires in Canada.
 
 ## Source
@@ -30,11 +36,11 @@ The data was divided into train, test and validation with these percentages:
 - Test: ~15% (`wildfire`: 3480 images, `no_wildfire`: 2820 images)
 - Validation: ~15% (`wildfire`: 3480 images, `no_wildfire`: 2820 images)
 
-## Collection Methodology
+### Collection Methodology
 
 Coordinates found in the source file and extracted satellite images using MapBox API to 350x350px .jpg images
 
-### Classes
+## Classes
 
 ### 1- wildfire
 
@@ -54,21 +60,11 @@ Sample images of wildfire class:
   <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/no_wildfire/-73.8275%2C45.552381.jpg" width="350" title="nowildfire_img_2" />
 </p>
 
-### Goal
+## CNN Model Architecture
 
-Build a binary classifier model that can predict whether an area is at risk of a wildfire or not.
+### Code
 
-### CNN Model Architecture
-
-#### Code
-
-Here
-
-#### Diagram
-
-<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/wildfire_bin_classifier/cnn_arch/diagram/wildfire_bin_classifier_archDiagram.png" title="wildfire_bin_classifier_arch" />
-
-#### Model Summary
+Neural Network Architecture Code:
 
 ```python
 WildfireBinClassifier(
@@ -101,3 +97,71 @@ WildfireBinClassifier(
   )
 )
 ```
+
+### Diagram
+
+Neural Network Architecture Diagram:
+
+<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/wildfire_bin_classifier/cnn_arch/diagram/wildfire_bin_classifier_archDiagram.png" title="wildfire_bin_classifier_arch" />
+
+Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/model.py)
+
+### Transforms
+
+Image transformations:
+
+```python
+# image transformations
+image_transforms = transforms.Compose([
+    transforms.Resize((350, 350)),
+    transforms.ToTensor(),
+    transforms.Normalize([0.5, 0.5, 0.5],
+                         [0.5, 0.5, 0.5])
+])
+```
+
+Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/main.py#L54)
+
+### Hyperparameters
+
+Used for training the model:
+
+| Hyperparameter   | Value     |
+|------------------|-----------|
+| Batch Size       | 256       |
+| Num Epochs       | 10        |
+| Test Batch Size  | 256       |
+| Learning Rate    | 1e-3      |
+| Weight Decay     | 1e-5      |
+| Log Interval     | 10        |
+
+Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/v1/hparams.py)
+
+### Training 
+
+Training code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/train_model.py)
+
+#### Evidence
+
+```python
+Train Epoch: 9 [28160/30250 (93%)]	Loss: 0.358686
+\Validation set: Average loss: 0.3591, Accuracy: 5853/6300 (93%)
+
+Final Test set: Average loss: 0.3521, Accuracy: 93.68%
+Saving model to /projects/aidl-upc-winter2024-satellite-imagery/app/wildfire_bin_classifier/src/checkpoints...
+Model saved successfully!
+```
+
+#### Plot
+
+<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/v1/learning_curves.png" title="CNN_learning_curves" />
+
+#### Checkpoint
+
+Model checkpoint is available [here](https://drive.google.com/file/d/1dPMRYltQbwkPT71I4jc_P6RraxFOnfhM/view?usp=sharing)
+
+## Achievement
+
+At this point, we successfully built a binary classifier model that can predict whether an area is at risk of a wildfire or not. This was accomplished from scratch using curated satellite imagery data.
+
+From a given satellite image with similar characteristics to the ones within the [curated dataset](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset), the model can predict the class (1 - 'wildfire' or 2 - 'no_wildfire') with an accuracy of 93.68%.
