@@ -149,7 +149,16 @@ Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite
 
 ### Training 
 
-Training code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/train_model.py)
+#### Resources
+
+We have used 2 different resources to train the model. 
+
+1. `CUDA` by enabling GPU on **Google Colab**.
+2. `MPS` on **Apple MacBook Pro with M1 chip with 32 GB RAM**.
+
+For this experiment, the 2nd option (`MPS`) was the one chosen for the final training to avoid any issues with the internet connection or runtime disconnection.
+
+Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/train_model.py)
 
 #### Evidence
 
@@ -202,4 +211,4 @@ Prediction: `wildfire` ✅
 
 ### Application Code
 
-Available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/tree/main/app/with_curated_dataset).
+Available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/tree/main/app/with_curated_dataset/wildfire_bin_classifier).
