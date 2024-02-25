@@ -190,3 +190,6 @@ Given image:
 
 Prediction: `wildfire` ✅
 
+### Application Code
+
+Available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/tree/main/app/with_curated_dataset).
