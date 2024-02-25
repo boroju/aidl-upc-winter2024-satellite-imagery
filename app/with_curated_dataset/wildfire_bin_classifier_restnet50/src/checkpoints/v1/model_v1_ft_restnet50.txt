@@ -1,0 +1,6 @@
+Path to model_v1_ft_restnet50.pt
+https://drive.google.com/drive/folders/1M6x8WbZBF3a1lwcJQVakY22fc6xlB-Jw?usp=sharing
+
+It was NOT UPLOADED to Github repo because of the size limit: 100mb
+
+Model configuration and its hypermarameters are within v1 folder.
