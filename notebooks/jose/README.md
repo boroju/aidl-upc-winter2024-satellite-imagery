@@ -18,6 +18,8 @@ Our unique dataset is crafted using images from the National Agriculture Imagery
 
 For the accurate identification of burned and not burned areas corresponding to the wildfires in Paradise, California, and Cameron Peak, Colorado, we performed manual annotations. By visually inspecting the BurnDate mask provided by MODIS within GEE, we systematically marked areas affected by the fires. This meticulous process resulted in a precise dataset consisting of images and corresponding masks for training our model, with a total of 145 burned areas and 182 not burned areas annotated. This step was crucial for ensuring the high quality and reliability of our training dataset, directly impacting the model's ability to accurately segment satellite imagery based on the presence of wildfires.
 
+![Paradise data points](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/notebooks/jose/assets/paradise_wildfire_data_points.jpg?raw=true)
+
 ### Data Processing and Preparation
 The creation of our dataset involved several key steps:
 - **Data Acquisition:** Programmatic access and download of high-resolution NAIP imagery and MODIS thermal anomalies data from GEE.
