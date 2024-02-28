@@ -1,5 +1,5 @@
 
-# Wildfire Segmentation Project - UPC Master in Artificial Intelligence with Deep Learning
+# 🔥 Wildfire Segmentation Project - UPC Master in Artificial Intelligence with Deep Learning
 
 ## Introduction
 Welcome to our GitHub repository for the Wildfire Segmentation Project, developed as the capstone project for the Postgraduate Program in Artificial Intelligence with Deep Learning. This project is aimed at leveraging the power of deep learning to address the critical and increasingly prevalent issue of wildfires. By employing semantic segmentation techniques on satellite images, we aim to accurately identify and predict wildfire-affected areas, contributing to better management, response, and mitigation strategies.
