@@ -26,6 +26,18 @@ The creation of our dataset involved several key steps:
 - **Preprocessing:** Alignment and scaling of NAIP and MODIS data to ensure that each NAIP image was perfectly matched with its corresponding MODIS mask based on geographic location and projection.
 - **Augmentation and Splitting:** The dataset was augmented and randomly split into training, validation, and testing sets to ensure robust model training and evaluation.
 
+<p align="center">
+    <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/notebooks/jose/assets/landcover.png?raw=true" width=30% height=30% alt>
+    <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/notebooks/jose/assets/landcover_ndvi.png?raw=true" width=30% height=30% alt>
+    <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/notebooks/jose/assets/landcover_ndwi.png?raw=true" width=30% height=30% alt>
+    <br>
+    <em>Caption</em>
+</p>
+
+NDVI is **used to quantify vegetation greenness** and is useful in understanding vegetation density and assessing changes in plant health. NDVI is calculated as a ratio between the red (R) and near infrared (NIR) values in traditional fashion: (NIR - R) / (NIR + R)
+
+The **Normalized Difference Water Index** (NDWI) is known to be strongly related to the plant water content. It is therefore a very good proxy for plant water stress. The Normalized Difference Water Index (NDWI) (Gao, 1996) is a satellite-derived index from the Near-Infrared (NIR) and Short Wave Infrared (SWIR) channels.
+
 For detailed information on the data and the process of obtaining it from GEE, please refer to the notebook `segmentation_model_data.ipynb` in this repository. This notebook contains comprehensive details to facilitate the understanding and reproduction of the analysis conducted in this project.
 
 
