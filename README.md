@@ -23,7 +23,7 @@ For the accurate identification of burned and not burned areas corresponding to 
 ### Data Processing and Preparation
 The creation of our dataset involved several key steps:
 - **Data Acquisition:** Programmatic access and download of high-resolution NAIP imagery and MODIS thermal anomalies data from GEE.
-- **Preprocessing:** Alignment and scaling of NAIP and MODIS data to ensure that each NAIP image was perfectly matched with its corresponding MODIS mask based on geographic location and projection.
+- **Preprocessing:** Alignment and scaling of NAIP and MODIS data to ensure that each NAIP image was ![perfectly matched](https://code.earthengine.google.com/9e8459b1f855f28f6dd91c3afa1d17fb?hideCode=true) with its corresponding MODIS mask based on geographic location and projection.
 - **Augmentation and Splitting:** The dataset was augmented and randomly split into training, validation, and testing sets to ensure robust model training and evaluation.
 
 ### Satellite Imagery for Segmentation Algorithm Input
