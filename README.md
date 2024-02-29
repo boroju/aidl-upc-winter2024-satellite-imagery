@@ -37,7 +37,7 @@ The creation of our dataset involved several key steps:
 
 Crucially, these images, depicting landcover, NDVI, and NDWI, serve as the foundational dataset feeding into the segmentation algorithm. Each piece of information captured in these images contributes to training the model to distinguish and identify specific features, enabling precise semantic segmentation for wildfire prediction.
 
-**NDVI (Normalized Difference Vegetation Index):** NDVI is a vegetation index commonly derived from satellite imagery. It quantifies the presence and health of vegetation by comparing the reflectance of near-infrared light to that of red light. Higher NDVI values typically indicate healthier and more abundant vegetation.
+**NDVI (Normalized Difference Vegetation Index):** NDVI is a vegetation index commonly derived from satellite imagery. It quantifies the presence and health of vegetation by comparing the reflectance of near-infrared light to that of red light. Higher NDVI values typically indicate healthier and more abundant vegetation. [Watch it live in Google Earth Engine](https://code.earthengine.google.com/273812b048fb5ddba384f270912b1107?hideCode=true)
 
 **NDWI (Normalized Difference Water Index):** NDWI is another spectral index, but it focuses on water content. It is derived by comparing the reflectance of green and near-infrared light. Higher NDWI values suggest the presence of water, aiding in the identification of water bodies.
 
