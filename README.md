@@ -68,10 +68,10 @@ We realized that constructing our satellite imagery dataset would be quite chall
 
 1. [Goal](#Goal)
 2. [Dataset](#Dataset)
-3. [CNN Model Architecture](#CNN-Model-Architecture)
+3. [CNN BinClassifier Model Architecture](#CNN-BinClassifier-Model-Architecture)
 4. [Training](#Training)
 5. [Prediction](#Prediction)
-6. [Achievement and Conclusions](#Achievement and Conclusions)
+6. [Achievements](#Achievements)
 
 #### 1. Goal
 
@@ -252,7 +252,7 @@ Given image:
 
 Available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/tree/main/app/with_curated_dataset/wildfire_bin_classifier).
 
-#### 6. Achievement and Conclusions
+#### 6. Achievements
 
 At this point, we successfully built a binary classifier model that can predict whether an area is at risk of a wildfire or not. This was accomplished from scratch using a kaggle curated dataset which contains satellite imagery data.
 
