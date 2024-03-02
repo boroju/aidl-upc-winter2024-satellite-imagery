@@ -38,6 +38,11 @@ hparams = {
 }
 
 if __name__ == "__main__":
+    print(f"========================================================================")
+    print(f"== Wildfire Binary Classifier with Kaggle Wildfire Prediction Dataset ==")
+    print(f"========================================================================")
+    print(f"Device: {device}")
+
     # Get the directory path (go back three levels from the current script location)
     _dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../.."))
     # Change directory
@@ -46,9 +51,9 @@ if __name__ == "__main__":
     initial_path = os.getcwd()
     print(f"Initial Path: {initial_path}")
 
-    train_path = initial_path + "/datasets/wildfire_prediction/train"
-    test_path = initial_path + "/datasets/wildfire_prediction/test"
-    valid_path = initial_path + "/datasets/wildfire_prediction/valid"
+    train_path = initial_path + "/datasets/kaggle_wildfire_prediction_dataset/train"
+    test_path = initial_path + "/datasets/kaggle_wildfire_prediction_dataset/test"
+    valid_path = initial_path + "/datasets/kaggle_wildfire_prediction_dataset/valid"
 
     # defining image transformations
     image_transforms = transforms.Compose([
@@ -99,7 +104,7 @@ if __name__ == "__main__":
     print(f"Current directory: {current_dir}")
 
     # Specify the relative path from the current directory to the target directory
-    relative_path = "aidl-upc-winter2024-satellite-imagery/app/wildfire_bin_classifier/src/checkpoints"
+    relative_path = "aidl-upc-winter2024-satellite-imagery/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints"
     print(f"Relative path: {relative_path}")
 
     # Checkpoints directory

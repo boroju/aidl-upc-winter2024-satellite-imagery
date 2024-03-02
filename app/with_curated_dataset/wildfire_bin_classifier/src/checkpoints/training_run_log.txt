@@ -1,0 +1,170 @@
+Training time: 27 mins
+Train started at 14:53
+Train ended at 15:20
+========================================================================
+/Users/julianesteban.borona/Github/upc/projects/aidl-upc-winter2024-satellite-imagery/.venv/bin/python /Users/julianesteban.borona/Github/upc/projects/aidl-upc-winter2024-satellite-imagery/app/with_curated_dataset/wildfire_bin_classifier/src/main.py
+========================================================================
+== Wildfire Binary Classifier with Kaggle Wildfire Prediction Dataset ==
+========================================================================
+Device: mps
+Initial Path: /Users/julianesteban.borona/Github/upc/projects
+Img shape:  torch.Size([3, 350, 350])
+Label:  0
+Batch Img shape:  torch.Size([256, 3, 350, 350])
+Batch Label shape:  torch.Size([256])
+Batch Img shape:  torch.Size([256, 3, 350, 350])
+Batch Label shape:  torch.Size([256])
+The Batched tensors return a collection of 256 images     (3 channel, 350 height pixels, 350 width     pixels)
+In the case of the labels, we obtain 256 batched integers, one per image
+Train:
+Found 30250 images belonging to ['nowildfire', 'wildfire'] classes.
+Test:
+Found 6300 images belonging to ['nowildfire', 'wildfire'] classes.
+Val:
+Found 6300 images belonging to ['nowildfire', 'wildfire'] classes.
+Current directory: /Users/julianesteban.borona/Github/upc/projects
+Relative path: aidl-upc-winter2024-satellite-imagery/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints
+Checkpoints directory: /Users/julianesteban.borona/Github/upc/projects/aidl-upc-winter2024-satellite-imagery/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints
+Train Epoch: 0 [0/30250 (0%)]	Loss: 0.693658
+Train Epoch: 0 [2560/30250 (8%)]	Loss: 0.437080
+Train Epoch: 0 [5120/30250 (17%)]	Loss: 0.459315
+Train Epoch: 0 [7680/30250 (25%)]	Loss: 0.421213
+Train Epoch: 0 [10240/30250 (34%)]	Loss: 0.448831
+Train Epoch: 0 [12800/30250 (42%)]	Loss: 0.403487
+Train Epoch: 0 [15360/30250 (51%)]	Loss: 0.393957
+Train Epoch: 0 [17920/30250 (59%)]	Loss: 0.386970
+Train Epoch: 0 [20480/30250 (68%)]	Loss: 0.422189
+Train Epoch: 0 [23040/30250 (76%)]	Loss: 0.397804
+Train Epoch: 0 [25600/30250 (85%)]	Loss: 0.404523
+Train Epoch: 0 [28160/30250 (93%)]	Loss: 0.434943
+\Validation set: Average loss: 0.4166, Accuracy: 5495/6300 (87%)
+
+Train Epoch: 1 [0/30250 (0%)]	Loss: 0.431525
+Train Epoch: 1 [2560/30250 (8%)]	Loss: 0.415134
+Train Epoch: 1 [5120/30250 (17%)]	Loss: 0.419681
+Train Epoch: 1 [7680/30250 (25%)]	Loss: 0.420073
+Train Epoch: 1 [10240/30250 (34%)]	Loss: 0.386333
+Train Epoch: 1 [12800/30250 (42%)]	Loss: 0.402668
+Train Epoch: 1 [15360/30250 (51%)]	Loss: 0.410718
+Train Epoch: 1 [17920/30250 (59%)]	Loss: 0.386032
+Train Epoch: 1 [20480/30250 (68%)]	Loss: 0.379104
+Train Epoch: 1 [23040/30250 (76%)]	Loss: 0.409749
+Train Epoch: 1 [25600/30250 (85%)]	Loss: 0.381741
+Train Epoch: 1 [28160/30250 (93%)]	Loss: 0.382104
+\Validation set: Average loss: 0.3830, Accuracy: 5705/6300 (91%)
+
+Train Epoch: 2 [0/30250 (0%)]	Loss: 0.395527
+Train Epoch: 2 [2560/30250 (8%)]	Loss: 0.381735
+Train Epoch: 2 [5120/30250 (17%)]	Loss: 0.383613
+Train Epoch: 2 [7680/30250 (25%)]	Loss: 0.372281
+Train Epoch: 2 [10240/30250 (34%)]	Loss: 0.364705
+Train Epoch: 2 [12800/30250 (42%)]	Loss: 0.369732
+Train Epoch: 2 [15360/30250 (51%)]	Loss: 0.393959
+Train Epoch: 2 [17920/30250 (59%)]	Loss: 0.416371
+Train Epoch: 2 [20480/30250 (68%)]	Loss: 0.404091
+Train Epoch: 2 [23040/30250 (76%)]	Loss: 0.391806
+Train Epoch: 2 [25600/30250 (85%)]	Loss: 0.374796
+Train Epoch: 2 [28160/30250 (93%)]	Loss: 0.382682
+\Validation set: Average loss: 0.3728, Accuracy: 5762/6300 (91%)
+
+Train Epoch: 3 [0/30250 (0%)]	Loss: 0.368314
+Train Epoch: 3 [2560/30250 (8%)]	Loss: 0.393586
+Train Epoch: 3 [5120/30250 (17%)]	Loss: 0.380189
+Train Epoch: 3 [7680/30250 (25%)]	Loss: 0.391906
+Train Epoch: 3 [10240/30250 (34%)]	Loss: 0.387949
+Train Epoch: 3 [12800/30250 (42%)]	Loss: 0.419739
+Train Epoch: 3 [15360/30250 (51%)]	Loss: 0.351524
+Train Epoch: 3 [17920/30250 (59%)]	Loss: 0.395800
+Train Epoch: 3 [20480/30250 (68%)]	Loss: 0.385343
+Train Epoch: 3 [23040/30250 (76%)]	Loss: 0.356511
+Train Epoch: 3 [25600/30250 (85%)]	Loss: 0.377121
+Train Epoch: 3 [28160/30250 (93%)]	Loss: 0.381334
+\Validation set: Average loss: 0.3619, Accuracy: 5840/6300 (93%)
+
+Train Epoch: 4 [0/30250 (0%)]	Loss: 0.387141
+Train Epoch: 4 [2560/30250 (8%)]	Loss: 0.391181
+Train Epoch: 4 [5120/30250 (17%)]	Loss: 0.356726
+Train Epoch: 4 [7680/30250 (25%)]	Loss: 0.368505
+Train Epoch: 4 [10240/30250 (34%)]	Loss: 0.373430
+Train Epoch: 4 [12800/30250 (42%)]	Loss: 0.355525
+Train Epoch: 4 [15360/30250 (51%)]	Loss: 0.380972
+Train Epoch: 4 [17920/30250 (59%)]	Loss: 0.374442
+Train Epoch: 4 [20480/30250 (68%)]	Loss: 0.374277
+Train Epoch: 4 [23040/30250 (76%)]	Loss: 0.363778
+Train Epoch: 4 [25600/30250 (85%)]	Loss: 0.389129
+Train Epoch: 4 [28160/30250 (93%)]	Loss: 0.360427
+\Validation set: Average loss: 0.3726, Accuracy: 5765/6300 (92%)
+
+Train Epoch: 5 [0/30250 (0%)]	Loss: 0.398826
+Train Epoch: 5 [2560/30250 (8%)]	Loss: 0.339000
+Train Epoch: 5 [5120/30250 (17%)]	Loss: 0.381681
+Train Epoch: 5 [7680/30250 (25%)]	Loss: 0.393557
+Train Epoch: 5 [10240/30250 (34%)]	Loss: 0.351203
+Train Epoch: 5 [12800/30250 (42%)]	Loss: 0.383638
+Train Epoch: 5 [15360/30250 (51%)]	Loss: 0.384427
+Train Epoch: 5 [17920/30250 (59%)]	Loss: 0.355805
+Train Epoch: 5 [20480/30250 (68%)]	Loss: 0.368462
+Train Epoch: 5 [23040/30250 (76%)]	Loss: 0.364617
+Train Epoch: 5 [25600/30250 (85%)]	Loss: 0.373609
+Train Epoch: 5 [28160/30250 (93%)]	Loss: 0.366527
+\Validation set: Average loss: 0.3624, Accuracy: 5837/6300 (93%)
+
+Train Epoch: 6 [0/30250 (0%)]	Loss: 0.355852
+Train Epoch: 6 [2560/30250 (8%)]	Loss: 0.372131
+Train Epoch: 6 [5120/30250 (17%)]	Loss: 0.338473
+Train Epoch: 6 [7680/30250 (25%)]	Loss: 0.376381
+Train Epoch: 6 [10240/30250 (34%)]	Loss: 0.353522
+Train Epoch: 6 [12800/30250 (42%)]	Loss: 0.363940
+Train Epoch: 6 [15360/30250 (51%)]	Loss: 0.359592
+Train Epoch: 6 [17920/30250 (59%)]	Loss: 0.347371
+Train Epoch: 6 [20480/30250 (68%)]	Loss: 0.361896
+Train Epoch: 6 [23040/30250 (76%)]	Loss: 0.371046
+Train Epoch: 6 [25600/30250 (85%)]	Loss: 0.362256
+Train Epoch: 6 [28160/30250 (93%)]	Loss: 0.381481
+\Validation set: Average loss: 0.3596, Accuracy: 5857/6300 (93%)
+
+Train Epoch: 7 [0/30250 (0%)]	Loss: 0.359981
+Train Epoch: 7 [2560/30250 (8%)]	Loss: 0.367504
+Train Epoch: 7 [5120/30250 (17%)]	Loss: 0.367487
+Train Epoch: 7 [7680/30250 (25%)]	Loss: 0.353007
+Train Epoch: 7 [10240/30250 (34%)]	Loss: 0.366493
+Train Epoch: 7 [12800/30250 (42%)]	Loss: 0.348542
+Train Epoch: 7 [15360/30250 (51%)]	Loss: 0.343856
+Train Epoch: 7 [17920/30250 (59%)]	Loss: 0.357240
+Train Epoch: 7 [20480/30250 (68%)]	Loss: 0.364681
+Train Epoch: 7 [23040/30250 (76%)]	Loss: 0.350830
+Train Epoch: 7 [25600/30250 (85%)]	Loss: 0.353256
+Train Epoch: 7 [28160/30250 (93%)]	Loss: 0.395856
+\Validation set: Average loss: 0.3620, Accuracy: 5832/6300 (93%)
+
+Train Epoch: 8 [0/30250 (0%)]	Loss: 0.357992
+Train Epoch: 8 [2560/30250 (8%)]	Loss: 0.365687
+Train Epoch: 8 [5120/30250 (17%)]	Loss: 0.355824
+Train Epoch: 8 [7680/30250 (25%)]	Loss: 0.383413
+Train Epoch: 8 [10240/30250 (34%)]	Loss: 0.353888
+Train Epoch: 8 [12800/30250 (42%)]	Loss: 0.357576
+Train Epoch: 8 [15360/30250 (51%)]	Loss: 0.369194
+Train Epoch: 8 [17920/30250 (59%)]	Loss: 0.344260
+Train Epoch: 8 [20480/30250 (68%)]	Loss: 0.327478
+Train Epoch: 8 [23040/30250 (76%)]	Loss: 0.345508
+Train Epoch: 8 [25600/30250 (85%)]	Loss: 0.366184
+Train Epoch: 8 [28160/30250 (93%)]	Loss: 0.353337
+\Validation set: Average loss: 0.3630, Accuracy: 5831/6300 (93%)
+
+Train Epoch: 9 [0/30250 (0%)]	Loss: 0.336808
+Train Epoch: 9 [2560/30250 (8%)]	Loss: 0.358296
+Train Epoch: 9 [5120/30250 (17%)]	Loss: 0.365265
+Train Epoch: 9 [7680/30250 (25%)]	Loss: 0.343561
+Train Epoch: 9 [10240/30250 (34%)]	Loss: 0.342247
+Train Epoch: 9 [12800/30250 (42%)]	Loss: 0.339097
+Train Epoch: 9 [15360/30250 (51%)]	Loss: 0.355013
+Train Epoch: 9 [17920/30250 (59%)]	Loss: 0.363386
+Train Epoch: 9 [20480/30250 (68%)]	Loss: 0.349797
+Train Epoch: 9 [23040/30250 (76%)]	Loss: 0.348124
+Train Epoch: 9 [25600/30250 (85%)]	Loss: 0.360356
+Train Epoch: 9 [28160/30250 (93%)]	Loss: 0.362320
+\Validation set: Average loss: 0.3616, Accuracy: 5836/6300 (93%)
+
+Final Test set: Average loss: 0.3527, Accuracy: 93.65%
+Saving model to /Users/julianesteban.borona/Github/upc/projects/aidl-upc-winter2024-satellite-imagery/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints...
+Model saved successfully!
