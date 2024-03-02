@@ -98,11 +98,12 @@ Used for training the model:
 
 Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/v1/hparams.py)
 
-## Training 
+## Training
 
 #### Resources
 
 *   `MPS` device on **Apple MacBook Pro with M1 chip with 32 GB RAM**.
+*   `Poetry` for setting up the virtual environment and installing the dependencies.
 
 #### Explanation
 
@@ -114,6 +115,7 @@ This led us to:
 
 1. Train the model faster (in just **27 minutes**).
 2. Work with around 40,000 images using local resources, thereby avoiding the usage of Google Drive storage, which is slow and problematic.
+3. Might be possible that the person who runs this experiment does not have an `Apple M1` computer. Keeping this in mind, we have provided the checkpoint model prediction validation option through a Google Colab notebook.
 
 #### Evidence
 
@@ -129,6 +131,39 @@ Model saved successfully!
 ```
 *   Training run log is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/training_run_log.txt)
 
+#### How to run the training
+
+This section would only be possible if you have an `Apple M1` computer. If you don't have an `Apple M1` computer, you can use the Google Colab notebook provided in the [Prediction](#Prediction) section.
+
+1. Clone the repository.
+2. Navigate to the `wildfire_bin_classifier` directory.
+3. Execute the following `Poetry` commands to set up the virtual environment and install the dependencies:
+
+```bash
+poetry config virtualenvs.in-project true
+```
+
+Above command configures Poetry to create virtual environments within the project directory itself rather than in a global location. It ensures that each project has its own isolated environment, making it easier to manage dependencies and avoid conflicts between different projects.
+
+```bash
+poetry shell
+```
+
+Above command activates a virtual environment managed by Poetry, allowing you to work within an isolated environment where project dependencies are installed.
+
+```bash
+poetry install
+```
+
+Above command installs the dependencies specified in the `pyproject.toml` file using **Poetry**, ensuring that the project has all the necessary packages to run successfully.
+
+That would be all you need to do to set up the virtual environment and install the dependencies. 
+
+4. Download the dataset from [Kaggle](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset) and place it in a reachable directory within your local machine.
+5. Accommodate dataset paths in the `wildfire_bin_classifier/src/main.py` file.
+6. Configure your IDE to use the virtual environment created by Poetry.
+7. Run the `wildfire_bin_classifier/src/main.py` file.
+8. The model will start training and will save the checkpoint model in the `wildfire_bin_classifier/src/checkpoints` directory.
 
 #### Plot of Learning Curves
 
@@ -138,13 +173,18 @@ Model saved successfully!
 
 Model checkpoint is available [here](https://drive.google.com/file/d/1NTI68QrPzffmW5Kbgzijs6Roxk_tdhG1/view?usp=sharing)
 
+#### Accuracy
+
+**MODEL CHECKPOINT ACCURACY IS: 93.65% 👌**
+
 ## Prediction
 
 ### Easy execution
 
-For the sake of simplicity while validating this experiment, we have created a straightforward **Google Colab notebook** that can be used to predict the class of a given satellite image.
+For the sake of simplicity while validating this experiment, we have created a straightforward **Google Colab notebook** that can be used to predict the class `{'nowildfire': 0, 'wildfire': 1}` of a given satellite image.
 
-The notebook is available [here]().
+*   Notebook name: `Wildfire_BinClassifier_Notebook_Checkpoint_Predictions.ipynb`
+*   Available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/Wildfire_BinClassifier_Notebook_Checkpoint_Predictions.ipynb).
 
 #### Further details
 
@@ -184,4 +224,8 @@ From a given satellite image with similar characteristics to the ones within the
 
 ## Conclusions
 
-Conclusions go here.
+*   Working with satellite imagery data is not easy at all. It requires a lot of effort to build a dataset from scratch.
+*   We managed how to use `Poetry` to set up the virtual environment and install the dependencies.
+*   We learnt how to take advantage of using `MPS` on an `Apple M1` computer to train a deep learning model faster.
+*   At this point we covered a 1st base of the project ensuring that we - at least - have something to show on the final presentation.
+*   We can now continue with the next steps of the project more relaxed, knowing that we have a model that can predict whether an area is at risk of a wildfire or not.
