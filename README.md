@@ -14,16 +14,8 @@ The original code is the Final Project delivery for the [UPC Artificial Intellig
 
 Advised by professor [Amanda Duarte](https://es.linkedin.com/in/amanda-cardoso-duarte)
 
-## Project Objective
+** Project Objective **
 The primary objective of this project is to apply semantic segmentation to satellite imagery for the precise identification of areas affected by wildfires. Utilizing state-of-the-art deep learning techniques, we aim to develop a model capable of distinguishing between burned and unburned areas, thereby facilitating more effective wildfire monitoring and management. The project underscores the importance of advanced AI in environmental protection and disaster response efforts.
-
-# Project Overview:
-The final product looks like this, you can see an image of a territory on the left and the probabilities (marked on yellow on the right):
-
-![image](https://github.com/ColourDread/MyStuff/assets/149001130/5dac47f7-248a-471e-a8a7-b9d0a19315be)
-
-
-
 
 
 ## Table of Contents
@@ -51,10 +43,14 @@ To use the database already prepared go to (add link) and download the zip.
 
 In the initial phase of the project, we were uncertain about the feasibility of building our own dataset. During this stage, we explored various satellite products, such as:
 
-- [MODIS Thermal Anomalies/Fire 8-Day](https://planetarycomputer.microsoft.com/dataset/modis-14A2-061) for Fire Mask
-- [Landsat Collection 2 Level-1](https://planetarycomputer.microsoft.com/dataset/landsat-c2-l1) and [Landsat Collection 2 Level-2](https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2) for Land Cover
+- [MODIS Thermal Anomalies/Fire 8-Day](https://planetarycomputer.microsoft.com/dataset/modis-14A2-061)
+- [Landsat Collection 2 Level-1](https://planetarycomputer.microsoft.com/dataset/landsat-c2-l1) and [Landsat Collection 2 Level-2](https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2)
 
-We realized that constructing our satellite imagery dataset would be quite challenging. So, we decided to split the work force into two groups. One group would continue investigating the feasibility of building our own dataset, while the other group would find a curated dataset.
+We realized that constructing our satellite imagery dataset would be quite challenging. So, we decided to split the work force into two groups. One group would continue investigating the feasibility of building our own dataset, while the other group would find a curated dataset using the following data sources:
+
+- [National Agriculture Imagery Program (NAIP)](https://naip-usdaonline.hub.arcgis.com/)
+- [The Terra Moderate Resolution Imaging Spectroradiometer (MODIS) Thermal Anomalies and Fire 8-Day (MOD14A2) Version 6.1](https://lpdaac.usgs.gov/products/mod14a2v061/) 
+- [The Terra and Aqua combined MCD64A1 Version 6.1 Burned Area](https://lpdaac.usgs.gov/products/mcd64a1v061/)
 
 # Experiments
 ## Experiment A: Binary classifier model for wildfire risk prediction
