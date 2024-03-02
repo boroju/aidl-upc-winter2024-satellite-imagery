@@ -1,0 +1,33 @@
+/Users/julianesteban.borona/Github/upc/projects/aidl-upc-winter2024-satellite-imagery/.venv/bin/python /Users/julianesteban.borona/Github/upc/projects/aidl-upc-winter2024-satellite-imagery/app/with_curated_dataset/wildfire_bin_classifier/src/predict.py
+
+========================================================================
+== Wildfire Binary Classifier with Kaggle Wildfire Prediction Dataset ==
+========================================================================
+== PREDICTION PART ==
+Initial Path: /Users/julianesteban.borona/Github/upc/projects/aidl-upc-winter2024-satellite-imagery/app/with_curated_dataset/wildfire_bin_classifier/src
+Device: cpu
+preprocessing_transforms: OK
+preprocessing_transforms: OK
+preprocessing_transforms: OK
+preprocessing_transforms: OK
+
+Predictions:
+============
+
+Image 1: test_nw_-73.47513,45.58354.jpg
+Expected: nowildfire
+Predicted class: nowildfire
+
+Image 2: test_nw_-73.58979,45.483765.jpg
+Expected: nowildfire
+Predicted class: nowildfire
+
+Image 3: test_w_-62.56176,51.29047.jpg
+Expected: wildfire
+Predicted class: wildfire
+
+Image 4: test_w_-63.3175,51.3397.jpg
+Expected: wildfire
+Predicted class: wildfire
+
+Process finished with exit code 0
