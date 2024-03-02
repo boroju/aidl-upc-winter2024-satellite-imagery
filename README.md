@@ -1,13 +1,273 @@
 
-# 🔥 Wildfire Segmentation Project - UPC Master in Artificial Intelligence with Deep Learning
+# Wildfire Probability Prediction Using Satelite Images
 
-## Introduction
-Welcome to our GitHub repository for the Wildfire Segmentation Project, developed as the capstone project for the Postgraduate Program in Artificial Intelligence with Deep Learning. This project is aimed at leveraging the power of deep learning to address the critical and increasingly prevalent issue of wildfires. By employing semantic segmentation techniques on satellite images, we aim to accurately identify and predict wildfire-affected areas, contributing to better management, response, and mitigation strategies.
+This project focuses on developing a comprehensive tool for the efficient detection of the probability of wildfires using satellite images provided by NASA, which are stored as TIFF files and a set of images obtained from Kaggle. The primary objective is to create a robust system capable of implementing and evaluating the probability that an area has of suffering a wildfire or not.
 
-## Project Objective
-The primary objective of this project is to apply semantic segmentation to satellite imagery for the precise identification of areas affected by wildfires. Utilizing state-of-the-art deep learning techniques, we aim to develop a model capable of distinguishing between burned and unburned areas, thereby facilitating more effective wildfire monitoring and management. The project underscores the importance of advanced AI in environmental protection and disaster response efforts.
+The dataset for this project consists of a curated dataset from Kaggle and a high-resolution satellite images obtained from NASA, offering a diverse range of data for real-world wildfire scenarios. The project employs advanced image processing techniques and leverages state-of-the-art machine learning models to achieve accurate and timely wildfire probability detection.
+
+The original code is the Final Project delivery for the [UPC Artificial Intelligence with Deep Learning Postgraduate Course](https://www.talent.upc.edu/ing/estudis/formacio/curs/310401/postgraduate-course-artificial-intelligence-deep-learning/) 2023-2024 edition, authored by:
+
+- [Julian Boronat](https://es.linkedin.com/in/boronatje)
+- [Jose Cajide](https://es.linkedin.com/in/jose-cajide-385bb8199)
+- [Paula Espina](https://es.linkedin.com/in/paulaec)
+- [Ignacio Sánchez](https://es.linkedin.com/in/igsalvar/en)
+
+Advised by professor [Amanda Duarte](https://es.linkedin.com/in/amanda-cardoso-duarte)
+
+# Wildfire Detection Overview:
+The final product looks like this, you can see an image of a territory on the left and the probabilities (marked on yellow on the right):
+
+![image](https://github.com/ColourDread/MyStuff/assets/149001130/5dac47f7-248a-471e-a8a7-b9d0a19315be)
 
 
+
+
+
+## Table of Contents
+
+1. [General Configuration:](#GeneralConfiguration)
+2. [Models](#Models)
+3. [Dealing with Satellite Imagery data is not easy at all](#DealingwithSatelliteImagerydataisnoteasyatall)
+4. [Experiments](#Experiments)
+5. [Final Conclusions](#FinalConclusions)
+6. [Future Usage](#FutureUsage)
+7. [Bibliography](#Bibliography)
+
+# General Configuration
+To use the database already prepared go to (add link) and download the zip.
+1. Download the zip and check the name
+2. Check that the folder name macthes the one on the Colab.
+
+# Models:
+- VGG15
+- ResNET18
+- ResNet50
+- DeepLabV3
+
+# Dealing with Satellite Imagery data is not easy at all
+
+In the initial phase of the project, we were uncertain about the feasibility of building our own dataset. During this stage, we explored various satellite products, such as:
+
+- [MODIS Thermal Anomalies/Fire 8-Day](https://planetarycomputer.microsoft.com/dataset/modis-14A2-061) for Fire Mask
+- [Landsat Collection 2 Level-1](https://planetarycomputer.microsoft.com/dataset/landsat-c2-l1) and [Landsat Collection 2 Level-2](https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2) for Land Cover
+
+We realized that constructing our satellite imagery dataset would be quite challenging. So, we decided to split the work force into two groups. One group would continue investigating the feasibility of building our own dataset, while the other group would find a curated dataset.
+
+# Experiments
+## Experiment A: Working with a curated dataset
+
+## Contents
+
+1. [Goal](#Goal)
+2. [Dataset](#Dataset)
+3. [Source](#Source)
+4. [Description](#Description)
+5. [Classes](#Classes)
+6. [CNN Model Architecture](#CNN-Model-Architecture)
+7. [Achievement](#Achievement)
+
+## Goal
+
+Build a binary classifier model that can predict whether an area is at risk of a wildfire or not.
+
+## Dataset
+
+After a few days of research, we found a curated dataset on [Kaggle](https://www.kaggle.com/). The dataset is called [Wildfire Prediction Dataset (Satellite Images)](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset). This dataset contains satellite images of areas that previously experienced wildfires in Canada.
+
+## Source
+
+Refer to Canada's website for the original wildfires data: [Forest Fires - Open Government Portal](https://open.canada.ca/data/en/dataset/9d8f219c-4df0-4481-926f-8a2a532ca003)
+
+Original license for the data: [Creative Commons 4.0 Attribution (CC-BY) license – Quebec](https://www.donneesquebec.ca/fr/licence/)
+
+## Description
+
+This dataset contains satellite images (350x350px) in 2 classes:
+
+- `wildfire`: 22710 images
+- `nowildfire`: 20140 images
+
+The data was divided into train, test and validation with these percentages:
+
+- Train: ~70% (`wildfire`: 15750 images, `nowildfire`: 14500 images)
+- Test: ~15% (`wildfire`: 3480 images, `nowildfire`: 2820 images)
+- Validation: ~15% (`wildfire`: 3480 images, `nowildfire`: 2820 images)
+
+### Collection Methodology
+
+Coordinates found in the source file and extracted satellite images using MapBox API to 350x350px .jpg images
+
+## Classes
+
+### 1- wildfire
+
+Sample images of wildfire class:
+
+<p float="left">
+  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/wildfire/-60.9878%2C50.4112.jpg" width="350" title="wildfire_img_1" />
+  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/wildfire/-61.5607%2C50.52878.jpg" width="350" title="wildfire_img_2" />
+</p>
+
+### 2- nowildfire
+
+Sample images of wildfire class:
+
+<p float="left">
+  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/nowildfire/-73.7181%2C45.486459.jpg" width="350" title="nowildfire_img_1" />
+  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/nowildfire/-73.8275%2C45.552381.jpg" width="350" title="nowildfire_img_2" />
+</p>
+
+## CNN Model Architecture
+
+### Code
+
+Neural Network Architecture Code:
+
+```python
+WildfireBinClassifier(
+  (conv1): ConvBlock(
+    (conv): Conv2d(3, 8, kernel_size=(2, 2), stride=(1, 1), bias=False)
+    (relu): ReLU(inplace=True)
+    (maxpool_2d): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (conv2): ConvBlock(
+    (conv): Conv2d(8, 16, kernel_size=(2, 2), stride=(1, 1), bias=False)
+    (relu): ReLU(inplace=True)
+    (maxpool_2d): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (conv3): ConvBlock(
+    (conv): Conv2d(16, 32, kernel_size=(2, 2), stride=(1, 1), bias=False)
+    (relu): ReLU(inplace=True)
+    (maxpool_2d): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (mlp): Sequential(
+    (0): Dropout(p=0.4, inplace=False)
+    (1): Linear(in_features=56448, out_features=2048, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.5, inplace=False)
+    (4): Linear(in_features=2048, out_features=300, bias=True)
+    (5): ReLU()
+    (6): Dropout(p=0.5, inplace=False)
+    (7): Linear(in_features=300, out_features=2, bias=True)
+    (8): ReLU()
+    (9): Softmax(dim=1)
+  )
+)
+```
+
+### Diagram
+
+Neural Network Architecture Diagram:
+
+<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/wildfire_bin_classifier/cnn_arch/diagram/wildfire_bin_classifier_archDiagram.png" title="wildfire_bin_classifier_arch" />
+
+Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/model.py)
+
+### Transforms
+
+Image transformations:
+
+```python
+# image transformations
+image_transforms = transforms.Compose([
+    transforms.Resize((350, 350)),
+    transforms.ToTensor(),
+    transforms.Normalize([0.5, 0.5, 0.5],
+                         [0.5, 0.5, 0.5])
+])
+```
+
+Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/main.py#L54)
+
+### Hyperparameters
+
+Used for training the model:
+
+| Hyperparameter   | Value     |
+|------------------|-----------|
+| Batch Size       | 256       |
+| Num Epochs       | 10        |
+| Test Batch Size  | 256       |
+| Learning Rate    | 1e-3      |
+| Weight Decay     | 1e-5      |
+| Log Interval     | 10        |
+
+Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/v1/hparams.py)
+
+### Training 
+
+#### Resources
+
+We have used 2 different resources to train the model. 
+
+1. `CUDA` by enabling GPU on **Google Colab**.
+2. `MPS` on **Apple MacBook Pro with M1 chip with 32 GB RAM**.
+
+For this experiment, the 2nd option (`MPS`) was the one chosen for the final training to avoid any issues with the internet connection or runtime disconnection.
+
+Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/train_model.py)
+
+#### Evidence
+
+```python
+Train Epoch: 9 [28160/30250 (93%)]	Loss: 0.358686
+\Validation set: Average loss: 0.3591, Accuracy: 5853/6300 (93%)
+
+Final Test set: Average loss: 0.3521, Accuracy: 93.68%
+Saving model to /projects/aidl-upc-winter2024-satellite-imagery/app/wildfire_bin_classifier/src/checkpoints...
+Model saved successfully!
+```
+
+#### Plot
+
+<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/v1/learning_curves.png" title="CNN_learning_curves" />
+
+#### Checkpoint
+
+Model checkpoint is available [here](https://drive.google.com/file/d/1dPMRYltQbwkPT71I4jc_P6RraxFOnfhM/view?usp=sharing)
+
+## Achievement
+
+At this point, we successfully built a binary classifier model that can predict whether an area is at risk of a wildfire or not. This was accomplished from scratch using curated satellite imagery data.
+
+From a given satellite image with similar characteristics to the ones within the [curated dataset](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset), the model can predict the class (1 - 'wildfire' or 2 - 'nowildfire') with an accuracy of 93.68%.
+
+### Inference
+
+Classes
+
+```python
+{'nowildfire': 0, 'wildfire': 1}
+```
+
+#### Example with class nowildfire
+
+Given image:
+
+<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/wildfire_bin_classifier/inference/-73.58813,45.482892.jpg" title="inference_class0" />
+
+Prediction: `nowildfire` ✅
+
+#### Example with class nowildfire
+
+Given image:
+
+<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/wildfire_bin_classifier/inference/-65.2239,49.10492.jpg" title="inference_class1" />
+
+Prediction: `wildfire` ✅
+
+### Application Code
+
+Available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/tree/main/app/with_curated_dataset/wildfire_bin_classifier).
+### Results
+
+### Conclusions
+- This model works, as seen before the accuracy reaches 93.68%. 
+- Now that the model works, we want to try with another dataset made of masks obtained from NASA Satelites.
+- The new model will use a more powerful CNN performed on AWS.
+
+
+## Experiment B: Working with our own dataset
 ## Dataset Overview
 Our unique dataset is crafted using images from the National Agriculture Imagery Program (NAIP) and the Moderate Resolution Imaging Spectroradiometer (MODIS) Fire and Thermal Anomalies datasets, accessed through Google Earth Engine (GEE). Specifically, the dataset includes:
 
@@ -96,7 +356,33 @@ This repository contains all the code and notebooks required to replicate our pr
 - A Google Colab Pro account for model training.
 - Basic familiarity with PyTorch and satellite image processing.
 
-## Conclusion
-Through this project, we demonstrate the potential of deep learning in enhancing our ability to monitor and respond to wildfires. We invite you to explore our notebooks, replicate our findings, and contribute to this vital field of research.
+### Results
+Here we can see a predicted fire mask from a real satelite image. 
+Features are:
+- Coordinates
+- Wildfire probability zones (marked on yellow)
+![image](https://github.com/ColourDread/MyStuff/assets/149001130/96e5787e-8339-4953-971a-ba0f5b1d9d39)
+
+### Conclusions
+- The model has achieved an accuracy of 75%.
+- Through this project, we demonstrate the potential of deep learning in enhancing our ability to monitor and respond to wildfires. We invite you to explore our notebooks, replicate our findings, and contribute to this vital field of research.
+
+# Final Conclusions
+- As satellites are continually monitoring and photographing the planet, an application of this type can be very useful to detect particularly sensitive areas so that they can be subjected to stricter surveillance, thereby helping to prevent fires.
+- We've experimented with the two datasets and two models and, in both cases, they suggest the feasibility of the project.
+- The use of masks is particularly useful for:
+  - Allowing the precise identification and delineation of objects or regions of interest in a satellite image.
+  - Reducing noise or parts of the image that are not essential for analysis.
+  - Improving model accuracy; masks enable increased model precision by helping it better understand the image structure, leading to more accurate predictions.
+  - Optimizing computational resources by eliminating irrelevant information in images.
+
+
+# Future usage:
+- Finetune to get a better accuracy
+- Develop a frontend to visualize everything
+
+# Bibliography:
+- Documentation about [TorchGeo](https://torchgeo.readthedocs.io/en/latest/api/trainers.html#torchgeo.trainers.SemanticSegmentationTask)
+- Documentation about [DeepLabV3](https://smp.readthedocs.io/en/latest/models.html#deeplabv3)
 
 Thank you for visiting our repository.
