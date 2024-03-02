@@ -68,7 +68,7 @@ We realized that constructing our satellite imagery dataset would be quite chall
 
 1. [Goal](#Goal)
 2. [Dataset](#Dataset)
-3. [CNN BinClassifier Model Architecture](#CNN-BinClassifier-Model-Architecture)
+3. [CNN Model Architecture](#CNN-Model-Architecture)
 4. [Training](#Training)
 5. [Prediction](#Prediction)
 6. [Achievements](#Achievements)
