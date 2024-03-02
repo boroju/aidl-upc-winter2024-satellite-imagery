@@ -258,15 +258,14 @@ At this point, we successfully built a binary classifier model that can predict 
 
 From a given satellite image with similar characteristics to the ones within the [curated dataset](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset), the model can predict the class (0 - 'nowildfire' or 1 - 'wildfire') with an **accuracy of 93.65%**.
 
-*Conclusions*
-
-- Working with satellite imagery data is not easy at all. It requires a lot of effort to build a dataset from scratch.
+*Additionally*
 - We managed how to use `Poetry` to set up the virtual environment and install the dependencies.
 - We learnt how to take advantage of using `MPS` on an `Apple M1` computer to train a deep learning model faster.
-- This model works, as seen before the accuracy reaches **93.65%**. 
+
+**Conclusions**
+
 - Now that the model works, we want to try with another dataset made of masks obtained from NASA Satelites.
 - The new model will use a more powerful CNN performed on AWS.
-
 
 ### Experiment B: Semantic segmentation on satellite images to identify and predict wildfire-affected areas
 
