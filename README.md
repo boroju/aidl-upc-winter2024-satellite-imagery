@@ -1,7 +1,9 @@
 
 # Wildfire Probability Prediction Using Satelite Images
 
-Welcome to our GitHub repository for the Wildfire Segmentation Project, developed as the capstone project for the Postgraduate Program in Artificial Intelligence with Deep Learning. This project is aimed at leveraging the power of deep learning to address the critical and increasingly prevalent issue of wildfires. By employing semantic segmentation techniques on satellite images, we aim to accurately identify and predict wildfire-affected areas, contributing to better management, response, and mitigation strategies.
+Welcome to our GitHub repository for the Wildfire Segmentation Project, developed as the capstone project for the Postgraduate Program in Artificial Intelligence with Deep Learning. 
+This project is aimed at leveraging the power of deep learning to address the critical and increasingly prevalent issue of wildfires. 
+By employing semantic segmentation techniques on satellite images, we aim to accurately identify and predict wildfire-affected areas, contributing to better management, response, and mitigation strategies.
 
 The original code is the Final Project delivery for the [UPC Artificial Intelligence with Deep Learning Postgraduate Course](https://www.talent.upc.edu/ing/estudis/formacio/curs/310401/postgraduate-course-artificial-intelligence-deep-learning/) 2023-2024 edition, authored by:
 
