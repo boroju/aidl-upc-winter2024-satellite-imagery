@@ -68,12 +68,10 @@ We realized that constructing our satellite imagery dataset would be quite chall
 
 1. [Goal](#Goal)
 2. [Dataset](#Dataset)
-3. [Source](#Source)
-4. [Description](#Description)
-5. [Classes](#Classes)
-6. [CNN Model Architecture](#CNN-Model-Architecture)
-7. [Achievement](#Achievement)
-
+3. [CNN Model Architecture](#CNN-Model-Architecture)
+4. [Training](#Training)
+5. [Prediction](#Prediction)
+6. [Achievement and Conclusions](#Achievement and Conclusions)
 
 #### 1. Goal
 
@@ -108,7 +106,16 @@ Coordinates found in the source file and extracted satellite images using MapBox
 
 **Classes**
 
-a) wildfire:
+a) 0- nowildfire
+
+Sample images of nowildfire class:
+
+<p float="left">
+  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/nowildfire/-73.7181%2C45.486459.jpg" width="350" title="nowildfire_img_1" />
+  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/nowildfire/-73.8275%2C45.552381.jpg" width="350" title="nowildfire_img_2" />
+</p>
+
+b) 1- wildfire
 
 Sample images of wildfire class:
 
@@ -117,52 +124,7 @@ Sample images of wildfire class:
   <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/wildfire/-61.5607%2C50.52878.jpg" width="350" title="wildfire_img_2" />
 </p>
 
-b) no wildfire:
-
-Sample images of wildfire class:
-
-<p float="left">
-  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/nowildfire/-73.7181%2C45.486459.jpg" width="350" title="nowildfire_img_1" />
-  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/nowildfire/-73.8275%2C45.552381.jpg" width="350" title="nowildfire_img_2" />
-</p>
-
 #### 3. CNN Model Architecture
-
-**Code**
-
-Neural Network Architecture Code:
-
-```python
-WildfireBinClassifier(
-  (conv1): ConvBlock(
-    (conv): Conv2d(3, 8, kernel_size=(2, 2), stride=(1, 1), bias=False)
-    (relu): ReLU(inplace=True)
-    (maxpool_2d): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
-  )
-  (conv2): ConvBlock(
-    (conv): Conv2d(8, 16, kernel_size=(2, 2), stride=(1, 1), bias=False)
-    (relu): ReLU(inplace=True)
-    (maxpool_2d): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
-  )
-  (conv3): ConvBlock(
-    (conv): Conv2d(16, 32, kernel_size=(2, 2), stride=(1, 1), bias=False)
-    (relu): ReLU(inplace=True)
-    (maxpool_2d): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
-  )
-  (mlp): Sequential(
-    (0): Dropout(p=0.4, inplace=False)
-    (1): Linear(in_features=56448, out_features=2048, bias=True)
-    (2): ReLU()
-    (3): Dropout(p=0.5, inplace=False)
-    (4): Linear(in_features=2048, out_features=300, bias=True)
-    (5): ReLU()
-    (6): Dropout(p=0.5, inplace=False)
-    (7): Linear(in_features=300, out_features=2, bias=True)
-    (8): ReLU()
-    (9): Softmax(dim=1)
-  )
-)
-```
 
 **Diagram**
 
@@ -172,76 +134,95 @@ Neural Network Architecture Diagram:
 
 Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/model.py)
 
-**Transforms**
-
-Image transformations:
-
-```python
-# image transformations
-image_transforms = transforms.Compose([
-    transforms.Resize((350, 350)),
-    transforms.ToTensor(),
-    transforms.Normalize([0.5, 0.5, 0.5],
-                         [0.5, 0.5, 0.5])
-])
-```
-
-Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/main.py#L54)
-
-**Hyperparameters**
-
-Used for training the model:
-
-| Hyperparameter   | Value     |
-|------------------|-----------|
-| Batch Size       | 256       |
-| Num Epochs       | 10        |
-| Test Batch Size  | 256       |
-| Learning Rate    | 1e-3      |
-| Weight Decay     | 1e-5      |
-| Log Interval     | 10        |
-
-Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/v1/hparams.py)
-
 #### 4.Training 
 
 **Resources**
 
-We have used 2 different resources to train the model. 
+*   `MPS` device on **Apple MacBook Pro with M1 chip with 32 GB RAM**.
+*   `Poetry` for setting up the virtual environment and installing the dependencies.
 
-1. `CUDA` by enabling GPU on **Google Colab**.
-2. `MPS` on **Apple MacBook Pro with M1 chip with 32 GB RAM**.
+**Explanation**
 
-For this experiment, the 2nd option (`MPS`) was the one chosen for the final training to avoid any issues with the internet connection or runtime disconnection.
+In the context of **Apple's M1 chip**, `MPS` stands for `Metal Performance Shaders`. **Metal Performance Shaders** is a framework provided by Apple that allows developers to perform advanced computations on the `GPU (Graphics Processing Unit)`.
 
-Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/train_model.py)
+By specifying `device = torch.device("mps")`, we utilized `MPS` for computations on the GPU.
 
-**Results**
+This led us to:
+
+1. Train the model faster (in just **27 minutes**).
+2. Work with around 40,000 images using local resources, thereby avoiding the usage of Google Drive storage, which is slow and problematic.
+3. Might be possible that the person who runs this experiment does not have an `Apple M1` computer. Keeping this in mind, we have provided the checkpoint model prediction validation option through a Google Colab notebook.
+
+**Evidence**
 
 ```python
-Train Epoch: 9 [28160/30250 (93%)]	Loss: 0.358686
-\Validation set: Average loss: 0.3591, Accuracy: 5853/6300 (93%)
+Train Epoch: 9 [23040/30250 (76%)]	Loss: 0.348124
+Train Epoch: 9 [25600/30250 (85%)]	Loss: 0.360356
+Train Epoch: 9 [28160/30250 (93%)]	Loss: 0.362320
+\Validation set: Average loss: 0.3616, Accuracy: 5836/6300 (93%)
 
-Final Test set: Average loss: 0.3521, Accuracy: 93.68%
-Saving model to /projects/aidl-upc-winter2024-satellite-imagery/app/wildfire_bin_classifier/src/checkpoints...
+Final Test set: Average loss: 0.3527, Accuracy: 93.65%
+Saving model to /Users/julianesteban.borona/Github/upc/projects/aidl-upc-winter2024-satellite-imagery/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints...
 Model saved successfully!
 ```
+*   Training run log is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/training_run_log.txt)
 
-**Plot**
+**How to run this training**
 
-<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/v1/learning_curves.png" title="CNN_learning_curves" />
+This section would only be possible if you have an `Apple M1` computer. If you don't have an `Apple M1` computer, you can use the Google Colab notebook provided in the [Prediction](#Prediction) section.
+
+1. Clone the repository.
+2. Navigate to the `wildfire_bin_classifier` directory.
+3. Execute the following `Poetry` commands to set up the virtual environment and install the dependencies:
+
+```bash
+poetry config virtualenvs.in-project true
+```
+
+Above command configures Poetry to create virtual environments within the project directory itself rather than in a global location. It ensures that each project has its own isolated environment, making it easier to manage dependencies and avoid conflicts between different projects.
+
+```bash
+poetry shell
+```
+
+Above command activates a virtual environment managed by Poetry, allowing you to work within an isolated environment where project dependencies are installed.
+
+```bash
+poetry install
+```
+
+Above command installs the dependencies specified in the `pyproject.toml` file using **Poetry**, ensuring that the project has all the necessary packages to run successfully.
+
+That would be all you need to do to set up the virtual environment and install the dependencies. 
+
+4. Download the dataset from [Kaggle](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset) and place it in a reachable directory within your local machine.
+5. Accommodate dataset paths in the `wildfire_bin_classifier/src/main.py` file.
+6. Configure your IDE to use the virtual environment created by Poetry.
+7. Run the `wildfire_bin_classifier/src/main.py` file.
+8. The model will start training and will save the checkpoint model in the `wildfire_bin_classifier/src/checkpoints` directory.
+
+**Plot of Learning Curves**
+
+<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/learning_curves.png" title="CNN_learning_curves" />
 
 **Checkpoint**
 
-Model checkpoint is available [here](https://drive.google.com/file/d/1dPMRYltQbwkPT71I4jc_P6RraxFOnfhM/view?usp=sharing)
+Model checkpoint is available [here](https://drive.google.com/file/d/1NTI68QrPzffmW5Kbgzijs6Roxk_tdhG1/view?usp=sharing)
 
-#### 5. Achievement
+**Accuracy**
 
-At this point, we successfully built a binary classifier model that can predict whether an area is at risk of a wildfire or not. This was accomplished from scratch using curated satellite imagery data.
+**MODEL CHECKPOINT ACCURACY FOR THIS EXPERIMENT IS: 93.65% 👌**
 
-From a given satellite image with similar characteristics to the ones within the [curated dataset](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset), the model can predict the class (1 - 'wildfire' or 2 - 'nowildfire') with an accuracy of 93.68%.
+#### 5. Prediction
 
-**Inference**
+**Easy execution**
+
+For the sake of simplicity while validating this experiment, we have created a straightforward **Google Colab notebook** that can be used to predict the class `{'nowildfire': 0, 'wildfire': 1}` of a given satellite image.
+
+*   Notebook name: `Wildfire_BinClassifier_Notebook_Checkpoint_Predictions.ipynb`
+*   Available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/Wildfire_BinClassifier_Notebook_Checkpoint_Predictions.ipynb).
+
+**Further details**
 
 Classes
 
@@ -253,25 +234,36 @@ Classes
 
 Given image:
 
-<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/wildfire_bin_classifier/inference/-73.58813,45.482892.jpg" title="inference_class0" />
+<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_nw_-73.47513%2C45.58354.jpg" title="inference_class0" />
 
-Prediction: `nowildfire` ✅
+*   Expected: `nowildfire`
+*   Prediction: `nowildfire` ✅
 
-**Example with class nowildfire**
+**Example with class wildfire**
 
 Given image:
 
-<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/wildfire_bin_classifier/inference/-65.2239,49.10492.jpg" title="inference_class1" />
+<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_w_-62.56176%2C51.29047.jpg" title="inference_class1" />
 
-Prediction: `wildfire` ✅
+*   Expected: `wildfire`
+*   Prediction: `wildfire` ✅
 
 **Application Code**
 
 Available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/tree/main/app/with_curated_dataset/wildfire_bin_classifier).
 
+#### 6. Achievement and Conclusions
+
+At this point, we successfully built a binary classifier model that can predict whether an area is at risk of a wildfire or not. This was accomplished from scratch using a kaggle curated dataset which contains satellite imagery data.
+
+From a given satellite image with similar characteristics to the ones within the [curated dataset](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset), the model can predict the class (0 - 'nowildfire' or 1 - 'wildfire') with an **accuracy of 93.65%**.
+
 *Conclusions*
 
-- This model works, as seen before the accuracy reaches **93.68%**. 
+- Working with satellite imagery data is not easy at all. It requires a lot of effort to build a dataset from scratch.
+- We managed how to use `Poetry` to set up the virtual environment and install the dependencies.
+- We learnt how to take advantage of using `MPS` on an `Apple M1` computer to train a deep learning model faster.
+- This model works, as seen before the accuracy reaches **93.65%**. 
 - Now that the model works, we want to try with another dataset made of masks obtained from NASA Satelites.
 - The new model will use a more powerful CNN performed on AWS.
 

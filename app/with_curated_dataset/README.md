@@ -7,20 +7,18 @@ In the initial phase of the project, we were uncertain about the feasibility of 
 
 And we realized that constructing our satellite imagery dataset would be quite challenging. So, we decided to split the work force into two groups. One group would continue investigating the feasibility of building our own dataset, while the other group would find a curated dataset kind of ready for a deep learning use case.
 
-# Experiment A: Working with a Kaggle curated dataset
+# Experiment A: Binary classifier model for wildfire risk prediction
 
 ## Contents
 
 1. [Goal](#Goal)
-3. [Dataset](#Dataset)
-4. [Source](#Source)
-5. [Description](#Description)
-6. [Classes](#Classes)
-7. [CNN Model Architecture](#CNN-Model-Architecture)
-8. [Training](#Training)
-9. [Prediction](#Prediction)
-10. [Achievement](#Achievement)
-11. [Conclusions](#Conclusions)
+2. [Dataset](#Dataset)
+3. [Classes](#Classes)
+4. [CNN Model Architecture](#CNN-Model-Architecture)
+5. [Training](#Training)
+6. [Prediction](#Prediction)
+7. [Achievement](#Achievement)
+8. [Conclusions](#Conclusions)
 
 ## Goal
 
@@ -30,13 +28,13 @@ Build a binary classifier model that can predict whether an area is at risk of a
 
 After a few days of research, we found a curated dataset on [Kaggle](https://www.kaggle.com/). The dataset is called [Wildfire Prediction Dataset (Satellite Images)](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset). This dataset contains satellite images of areas that previously experienced wildfires in Canada.
 
-## Source
+### Source
 
 Refer to Canada's website for the original wildfires data: [Forest Fires - Open Government Portal](https://open.canada.ca/data/en/dataset/9d8f219c-4df0-4481-926f-8a2a532ca003)
 
 Original license for the data: [Creative Commons 4.0 Attribution (CC-BY) license – Quebec](https://www.donneesquebec.ca/fr/licence/)
 
-## Description
+### Description
 
 This dataset contains satellite images (350x350px) in 2 classes:
 
@@ -83,29 +81,14 @@ Neural Network Architecture Diagram:
 
 Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/model.py)
 
-### Hyperparameters
-
-Used for training the model:
-
-| Hyperparameter   | Value     |
-|------------------|-----------|
-| Batch Size       | 256       |
-| Num Epochs       | 10        |
-| Test Batch Size  | 256       |
-| Learning Rate    | 1e-3      |
-| Weight Decay     | 1e-5      |
-| Log Interval     | 10        |
-
-Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/v1/hparams.py)
-
 ## Training
 
-#### Resources
+### Resources
 
 *   `MPS` device on **Apple MacBook Pro with M1 chip with 32 GB RAM**.
 *   `Poetry` for setting up the virtual environment and installing the dependencies.
 
-#### Explanation
+### Explanation
 
 In the context of **Apple's M1 chip**, `MPS` stands for `Metal Performance Shaders`. **Metal Performance Shaders** is a framework provided by Apple that allows developers to perform advanced computations on the `GPU (Graphics Processing Unit)`.
 
@@ -117,7 +100,7 @@ This led us to:
 2. Work with around 40,000 images using local resources, thereby avoiding the usage of Google Drive storage, which is slow and problematic.
 3. Might be possible that the person who runs this experiment does not have an `Apple M1` computer. Keeping this in mind, we have provided the checkpoint model prediction validation option through a Google Colab notebook.
 
-#### Evidence
+### Evidence
 
 ```python
 Train Epoch: 9 [23040/30250 (76%)]	Loss: 0.348124
@@ -131,7 +114,7 @@ Model saved successfully!
 ```
 *   Training run log is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/training_run_log.txt)
 
-#### How to run the training
+### How to run the training
 
 This section would only be possible if you have an `Apple M1` computer. If you don't have an `Apple M1` computer, you can use the Google Colab notebook provided in the [Prediction](#Prediction) section.
 
@@ -165,15 +148,15 @@ That would be all you need to do to set up the virtual environment and install t
 7. Run the `wildfire_bin_classifier/src/main.py` file.
 8. The model will start training and will save the checkpoint model in the `wildfire_bin_classifier/src/checkpoints` directory.
 
-#### Plot of Learning Curves
+### Plot of Learning Curves
 
 <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/learning_curves.png" title="CNN_learning_curves" />
 
-#### Checkpoint
+### Checkpoint
 
 Model checkpoint is available [here](https://drive.google.com/file/d/1NTI68QrPzffmW5Kbgzijs6Roxk_tdhG1/view?usp=sharing)
 
-#### Accuracy
+### Accuracy
 
 **MODEL CHECKPOINT ACCURACY IS: 93.65% 👌**
 
