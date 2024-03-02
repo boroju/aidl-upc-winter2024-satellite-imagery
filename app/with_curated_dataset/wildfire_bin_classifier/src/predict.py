@@ -31,7 +31,7 @@ def predict_image(
         torch_image: torch.tensor,
         model: torch.nn.Module
 ):
-    x = torch_image.to(device)  # move image to mps device
+    x = torch_image.to(device)  # move image to device
     x = x.unsqueeze(0)  # add batch dimension
 
     # Make a prediction
