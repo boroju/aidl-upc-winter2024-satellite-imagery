@@ -14,6 +14,9 @@ The original code is the Final Project delivery for the [UPC Artificial Intellig
 
 Advised by professor [Amanda Duarte](https://es.linkedin.com/in/amanda-cardoso-duarte)
 
+## Project Objective
+The primary objective of this project is to apply semantic segmentation to satellite imagery for the precise identification of areas affected by wildfires. Utilizing state-of-the-art deep learning techniques, we aim to develop a model capable of distinguishing between burned and unburned areas, thereby facilitating more effective wildfire monitoring and management. The project underscores the importance of advanced AI in environmental protection and disaster response efforts.
+
 # Wildfire Detection Overview:
 The final product looks like this, you can see an image of a territory on the left and the probabilities (marked on yellow on the right):
 
