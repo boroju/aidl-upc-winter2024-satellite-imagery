@@ -57,7 +57,7 @@ In the initial phase of the project, we were uncertain about the feasibility of 
 We realized that constructing our satellite imagery dataset would be quite challenging. So, we decided to split the work force into two groups. One group would continue investigating the feasibility of building our own dataset, while the other group would find a curated dataset.
 
 # Experiments
-## Experiment A: Working with a curated dataset
+## Experiment A: Binary classifier model for wildfire risk prediction
 
 ## Contents
 
@@ -270,9 +270,9 @@ Available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery
 - The new model will use a more powerful CNN performed on AWS.
 
 
-## Experiment B: Working with our own dataset
+## Experiment B: Semantic segmentation on satellite images to identify and predict wildfire-affected areas
 ## Dataset Overview
-Our unique dataset is crafted using images from the National Agriculture Imagery Program (NAIP) and the Moderate Resolution Imaging Spectroradiometer (MODIS) Fire and Thermal Anomalies datasets, accessed through Google Earth Engine (GEE). Specifically, the dataset includes:
+We curated a **custom dataset** by incorporating imagery from the National Agriculture Imagery Program (NAIP) and the Moderate Resolution Imaging Spectroradiometer (MODIS) Fire and Thermal Anomalies datasets, retrieved through Google Earth Engine (GEE). The dataset encompasses:
 
 - **NAIP Imagery:** High-resolution aerial imagery from NAIP, crucial for detailed landscape features. The NAIP dataset can be accessed [here](https://developers.google.com/earth-engine/datasets/catalog/USDA_NAIP_DOQQ).
 - **MODIS Thermal Anomalies and Fire Data:** Essential data for identifying wildfire occurrences, sourced from the MODIS dataset. This dataset can be found [here](https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD14A1).
