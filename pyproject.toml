@@ -2,9 +2,8 @@
 name = "aidl-upc-winter2024-satellite-imagery"
 version = "1.0.0"
 description = "UPC Artificial Intelligence with Deep Learning Postgraduate course | Winter2024 | Final project on Satellite Imagery"
-authors = ["Julian Boronat <julian.boronat@adevinta.com>"]
+authors = ["Julian Boronat <boronat.j.e@gmail.com>; Jose Cajide <jose@cajide.es>; Paula Espina Cambara <pec138@gmail.com>; Ignacio Sánchez Alvarado <nacho92sa@gmail.com>"]
 readme = "docs/README.md"
-
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4"

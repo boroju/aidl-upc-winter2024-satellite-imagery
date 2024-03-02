@@ -12,12 +12,14 @@ We realized that constructing our satellite imagery dataset would be quite chall
 ## Contents
 
 1. [Goal](#Goal)
-2. [Dataset](#Dataset)
-3. [Source](#Source)
-4. [Description](#Description)
-5. [Classes](#Classes)
-6. [CNN Model Architecture](#CNN-Model-Architecture)
-7. [Achievement](#Achievement)
+3. [Dataset](#Dataset)
+4. [Source](#Source)
+5. [Description](#Description)
+6. [Classes](#Classes)
+7. [CNN Model Architecture](#CNN-Model-Architecture)
+8. [How to execute it](#How to execute it)
+9. [Achievement](#Achievement)
+10. [Conclusions](#Conclusions)
 
 ## Goal
 
