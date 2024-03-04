@@ -62,6 +62,20 @@ We realized that constructing our satellite imagery dataset would be quite chall
 
 ## 4. Experiments
 
+**Experiment A: Binary Classifier Model for Wildfire Risk Prediction**
+
+In Experiment A, we developed a binary classifier model dedicated to predicting wildfire risk. This initiative served as a backup plan, primarily driven by the considerable effort involved in data preparation for Experiment B. The complexity arose from working with the intricate GeoTIFF format and its metadata, adding a layer of intricacy to the project.
+
+Although Experiment A showcases the application of deep learning for classification, it is presented primarily as a supportive effort. It highlights how deep learning can be employed for binary wildfire risk prediction, providing a comparative perspective against the main experiment's more complex challenges.
+
+**Experiment B: Semantic Segmentation for Wildfire Prediction**
+
+Experiment B represents the core of our innovation, focusing on semantic segmentation of satellite images to identify and predict wildfire-affected areas. Here, we trained a segmentation model, delving into the complexities of GeoTIFF formats, spatial metadata, and more.
+
+This experiment marks a novel application, showcasing the capability of deep learning for precise wildfire detection through semantic segmentation. While Experiment A provides valuable insights, Experiment B represents a significant leap forward, demonstrating a pioneering approach to wildfire prediction with our newly trained segmentation model.
+
+---
+
 ### Experiment A: Binary classifier model for wildfire risk prediction
 
 **Contents**
@@ -266,6 +280,8 @@ From a given satellite image with similar characteristics to the ones within the
 
 - Now that the model works, we want to try with another dataset made of masks obtained from NASA Satelites.
 - The new model will use a more powerful CNN performed on AWS.
+
+---
 
 ### Experiment B: Semantic segmentation on satellite images to identify and predict wildfire-affected areas
 
