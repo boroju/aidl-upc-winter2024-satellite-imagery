@@ -246,31 +246,24 @@ Classes
 {'nowildfire': 0, 'wildfire': 1}
 ```
 
-<p float="left">
-  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_nw_-73.47513%2C45.58354.jpg" title="inference_class0" />
-</p>
-
-<p float="left">
-  **Example with class nowildfire**
-
-  Given image:
-
-  *   Expected: `nowildfire`
-  *   Prediction: `nowildfire` ✅
-</p>
-
-<p float="left">
-  <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_w_-62.56176%2C51.29047.jpg" title="inference_class1" />
-</p>
-
-<p float="left">
-  **Example with class wildfire**
-
-  Given image:
-
-  *   Expected: `wildfire`
-  *   Prediction: `wildfire` ✅
-</p>
+<table>
+        <tr>
+            <td><img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_nw_-73.47513%2C45.58354.jpg" title="inference_class0" /></td>
+            <td><img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_w_-62.56176%2C51.29047.jpg" title="inference_class1" /></td>
+        </tr>
+        <tr>
+            <td>* Example with class <b>nowildfire</b></td>
+            <td>* Example with class <b>wildfire</b></td>
+        </tr>
+        <tr>
+            <td>Expected: <b>nowildfire</b></td>
+            <td>Expected: <b>wildfire</b></td>
+        </tr>
+        <tr>
+            <td>Prediction: <b>nowildfire ✅</b></td>
+            <td>Prediction: <b>wildfire ✅</b></td>
+        </tr>
+</table>
 
 **Application Code**
 
