@@ -1,5 +1,5 @@
   
-# Wildfire Probability Prediction Using Satelite Images
+# Wildfire Prediction Using Satellite Images
 
 Welcome to our GitHub repository for the Wildfire Segmentation Project, developed as the capstone project for the Postgraduate Program in Artificial Intelligence with Deep Learning. 
 This project is aimed at leveraging the power of deep learning to address the critical and increasingly prevalent issue of wildfires. 
@@ -118,7 +118,7 @@ The data was divided into train, test and validation with these percentages:
 
 **Collection Methodology**
 
-Using Longitude and Latitude coordinates for each wildfire spot (`> 0.01 acres` or `> 40.5 m²` burned) found on the dataset above satellite images were extracted of those areas using MapBox API to create a more convenient format of the dataset for deep learning and building a model that can predict whether an area is at risk of a wildfire or not.
+Using Longitude and Latitude coordinates for each wildfire spot (`> 0.01 acres` -same as- `> 40.5 m²` burned) found on the dataset above satellite images were extracted of those areas using MapBox API to create a more **convenient format of the dataset for deep learning and building a model that can predict whether an area is at risk of a wildfire or not**. The minimum mapping area can be up to `0.1 ha` -same as- `1000 m²`.
 
 **Classes**
 
