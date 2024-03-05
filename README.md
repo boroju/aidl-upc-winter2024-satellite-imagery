@@ -93,7 +93,9 @@ Build a binary classifier model that can predict whether an area is at risk of a
 
 #### 2. Dataset
 
-After a few days of research, we found a curated dataset on [Kaggle](https://www.kaggle.com/). The dataset is called [Wildfire Prediction Dataset (Satellite Images)](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset). This dataset contains satellite images of areas that previously experienced wildfires in Canada.
+After a few days of research, we found a curated dataset on [Kaggle](https://www.kaggle.com/). The dataset is called [Wildfire Prediction Dataset (Satellite Images)](https://www.kaggle.com/datasets/abdelghaniaaba/wildfire-prediction-dataset). 
+
+This dataset contains satellite images of areas that previously experienced wildfires in Canada.
 
 **Source**
 
@@ -244,23 +246,24 @@ Classes
 {'nowildfire': 0, 'wildfire': 1}
 ```
 
-**Example with class nowildfire**
-
-Given image:
-
-<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_nw_-73.47513%2C45.58354.jpg" title="inference_class0" />
-
-*   Expected: `nowildfire`
-*   Prediction: `nowildfire` ✅
-
-**Example with class wildfire**
-
-Given image:
-
-<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_w_-62.56176%2C51.29047.jpg" title="inference_class1" />
-
-*   Expected: `wildfire`
-*   Prediction: `wildfire` ✅
+<table>
+        <tr>
+            <td><img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_nw_-73.47513%2C45.58354.jpg" title="inference_class0" /></td>
+            <td><img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_w_-62.56176%2C51.29047.jpg" title="inference_class1" /></td>
+        </tr>
+        <tr>
+            <td>* Example with class <b>`nowildfire`</b></td>
+            <td>* Example with class <b>`wildfire`</b></td>
+        </tr>
+        <tr>
+            <td>Expected: <b>`nowildfire`</b></td>
+            <td>Expected: <b>`wildfire`</b></td>
+        </tr>
+        <tr>
+            <td>Prediction: <b>`nowildfire` ✅</b></td>
+            <td>Prediction: <b>`wildfire` ✅</b></td>
+        </tr>
+</table>
 
 **Application Code**
 
