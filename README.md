@@ -105,7 +105,7 @@ Original license for the data: [Creative Commons 4.0 Attribution (CC-BY) license
 
 **Description**
 
-This dataset contains satellite images (350x350px) in 2 classes:
+This dataset contains satellite images (`350x350`px - 3 channels `RGB` - extension `.jpg`) divided on **2 classes**:
 
 - `wildfire`: 22710 images
 - `nowildfire`: 20140 images
@@ -118,7 +118,7 @@ The data was divided into train, test and validation with these percentages:
 
 **Collection Methodology**
 
-Coordinates found in the source file and extracted satellite images using MapBox API to 350x350px .jpg images
+Using Longitude and Latitude coordinates for each wildfire spot (`> 0.01 acres` or `> 40.5 m²` burned) found on the dataset above satellite images were extracted of those areas using MapBox API to create a more convenient format of the dataset for deep learning and building a model that can predict whether an area is at risk of a wildfire or not.
 
 **Classes**
 
