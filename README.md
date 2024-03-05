@@ -328,7 +328,7 @@ Crucially, these images, depicting landcover, NDVI, and NDWI, serve as the found
 
 For detailed information on the data and the process of obtaining it from GEE, please refer to the notebook `segmentation_model_data.ipynb` in this repository. This notebook contains comprehensive details to facilitate the understanding and reproduction of the analysis conducted in this project.
 
-**Notebook**: For a detailed explanation about the data and how you can generate the dataset you can browse [segmentation_model_data.ipynb](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/notebooks/segmentation_model_data.ipynb) notebook.
+  **Notebook**: For a detailed explanation about the data and how you can generate the dataset you can browse [segmentation_model_data.ipynb](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/notebooks/segmentation_model_data.ipynb) notebook.
 
 
 #### Model Training with PyTorch
@@ -347,7 +347,7 @@ Our model is based on a transfer learning approach using DeepLabv3 with a ResNet
 - **Loss Function:** The model employs Focal Loss to address the class imbalance issue inherent in our dataset, focusing on harder-to-classify examples for improved performance.
 - **Early Stopping:** To prevent overfitting, we implemented an EarlyStopping mechanism based on validation loss.
 
-**Notebook**: You can execute the training task with the provided dataset using the [segmentation_model_training_demo.ipynb](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/notebooks/segmentation_model_training_demo.ipynb) notebook. This notebook has detailed exlanations about the training of the Semantic Segmentation Model, covering data preparation, normalization, model fine tunning, etc.
+  **Notebook**: You can execute the training task with the provided dataset using the [segmentation_model_training_demo.ipynb](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/notebooks/segmentation_model_training_demo.ipynb) notebook. This notebook has detailed exlanations about the training of the Semantic Segmentation Model, covering data preparation, normalization, model fine tunning, etc.
 
 **Final Model Training and Results**
 
@@ -380,7 +380,7 @@ Model Metrics:
 These results showcase the model's capability to effectively learn from the dataset and make accurate predictions. The chosen hyperparameters, model architecture, and careful training contribute to a robust and reliable segmentation model for wildfire prediction.
 
 
-**Notebook**: You can review the code used for training the final model in the cloud in the [end_to_end_model_creation_cloud_env.ipyn](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/notebooks/Nacho/end_to_end_model_creation_cloud_env.ipynb) notebook. 
+  **Notebook**: You can review the code used for training the final model in the cloud in the [end_to_end_model_creation_cloud_env.ipyn](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/notebooks/Nacho/end_to_end_model_creation_cloud_env.ipynb) notebook. 
 
 
 
