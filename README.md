@@ -252,16 +252,16 @@ Classes
             <td><img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_w_-62.56176%2C51.29047.jpg" title="inference_class1" /></td>
         </tr>
         <tr>
-            <td>* Example with class <b>nowildfire</b></td>
-            <td>* Example with class <b>wildfire</b></td>
+            <td>* Example with class <b>`nowildfire`</b></td>
+            <td>* Example with class <b>`wildfire`</b></td>
         </tr>
         <tr>
-            <td>Expected: <b>nowildfire</b></td>
-            <td>Expected: <b>wildfire</b></td>
+            <td>Expected: <b>`nowildfire`</b></td>
+            <td>Expected: <b>`wildfire`</b></td>
         </tr>
         <tr>
-            <td>Prediction: <b>nowildfire ✅</b></td>
-            <td>Prediction: <b>wildfire ✅</b></td>
+            <td>Prediction: <b>`nowildfire` ✅</b></td>
+            <td>Prediction: <b>`wildfire` ✅</b></td>
         </tr>
 </table>
 
