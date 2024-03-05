@@ -333,6 +333,12 @@ For detailed information on the data and the process of obtaining it from GEE, p
 #### Model Training with PyTorch
 Our model is based on a transfer learning approach using DeepLabv3 with a ResNet50 backbone, pre-trained on a relevant dataset to kickstart the learning process. We further customized the model to accept inputs with additional channels (RGB, NDVI, and NDWI features) and output two layers representing the probabilities assigned to each pixel for being part of a burned or unburned area.
 
+<p align="center">
+    <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/notebooks/jose/assets/training_data.png?raw=true" width=90% height=90% alt>
+    <br>
+    <em>The primary landcover image captures high-resolution details of the landscape, providing valuable visual information for understanding the terrain. The mask serves as the ground truth for wildfire prediction. It indicates areas affected by wildfire and was derived from MODIS FireMask data, calculated in GEE. </em>
+</p>
+
 **Initial Model Training Details**
 
 - **Environment:** Training was conducted on Google Colab Pro with GPU acceleration and high-memory VMs to handle the computational demands.
