@@ -247,29 +247,30 @@ Classes
 ```
 
 <p float="left">
-
-**Example with class nowildfire**
-
-Given image:
-
   <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_nw_-73.47513%2C45.58354.jpg" title="inference_class0" />
+</p>
 
-*   Expected: `nowildfire`
-*   Prediction: `nowildfire` ✅
+<p float="right">
+  **Example with class nowildfire**
 
+  Given image:
+
+  *   Expected: `nowildfire`
+  *   Prediction: `nowildfire` ✅
 </p>
 
 <p float="left">
-
-**Example with class wildfire**
-
-Given image:
-
   <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_w_-62.56176%2C51.29047.jpg" title="inference_class1" />
+</p>
 
-*   Expected: `wildfire`
-*   Prediction: `wildfire` ✅
+<p float="right">
+  **Example with class wildfire**
 
+  Given image:
+
+
+  *   Expected: `wildfire`
+  *   Prediction: `wildfire` ✅
 </p>
 
 **Application Code**
