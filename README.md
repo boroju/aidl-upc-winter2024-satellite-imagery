@@ -250,7 +250,7 @@ Classes
   <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_nw_-73.47513%2C45.58354.jpg" title="inference_class0" />
 </p>
 
-<p float="right">
+<p float="left">
   **Example with class nowildfire**
 
   Given image:
@@ -263,11 +263,10 @@ Classes
   <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_w_-62.56176%2C51.29047.jpg" title="inference_class1" />
 </p>
 
-<p float="right">
+<p float="left">
   **Example with class wildfire**
 
   Given image:
-
 
   *   Expected: `wildfire`
   *   Prediction: `wildfire` ✅
