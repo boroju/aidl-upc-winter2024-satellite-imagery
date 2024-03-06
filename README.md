@@ -369,20 +369,24 @@ Training Details:
 - **Training Duration:** The model was trained over multiple epochs, with noteworthy results achieved by the end of the third epoch.
 - **Hardware Configuration:** The training process made use of GPUs in the cloud, ensuring accelerated computation to handle the large dataset.
 - **Hyperparameters:**
-  - Model: DeepLabv3+
-  - Backbone: ResNet50
-  - Input Channels: 5
-  - Number of Classes: 2
-  - Number of Filters: 3
-  - Loss Function: Focal Loss
-  - Learning Rate: 0.0001
-  - Patience for Early Stopping: 5
-  - Freezing Backbone: True
-  - Freezing Decoder: False
-  - Batch Size: 6
-  - Patch Size: 256
-  - Training Length: 4000
-  - Number of Workers: 64
+
+| Hyperparameter   | Value     |
+|------------------|-----------|
+| Model            | `DeepLabv3+`       |
+| Backbone         | `ResNet50`        |
+| Input Channels   | `5`       |
+| Number of Classes | `2`      |
+| Number of Filters | `3`      |
+| Loss Function                 | `Focal Loss`        |
+| Learning Rate              | `0.0001`        |
+| Patience for Early Stopping              | `5`        |
+| Freezing Backbone              | `True`        |
+| Freezing Decoder              | `False`        |
+| Batch Size              | `6`        |
+| Patch Size              | `256`        |
+| Training Length              | `4000`        |
+| Number of Workers              | `64`        |
+
 
 Model Metrics:
 
