@@ -169,6 +169,17 @@ This led us to:
 2. Work with around 40,000 images using local resources, thereby avoiding the usage of Google Drive storage, which is slow and problematic.
 3. Might be possible that the person who runs this model does not have an `Apple M1` computer. Keeping this in mind, we have provided the checkpoint model prediction validation option through a Google Colab notebook.
 
+**Hyperparameters:**
+
+| Hyperparameter   | Value     |
+|------------------|-----------|
+| Batch Size       | `256`       |
+| Num Epochs       | `10`        |
+| Test Batch Size  | `256`       |
+| Learning Rate    | `1e-3`      |
+| Weight Decay     | `1e-5`      |
+| Log Interval     | `10`        |
+
 **Evidence**
 
 ```python
