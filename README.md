@@ -411,6 +411,10 @@ This model paves the way for further exploration of harnessing satellite imagery
 
 Wildfire probability zones (marked on yellow)
 
+ **Notebook**: You can review the code used for obtaining the model prediction in the [model_prediction.ipyn](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/notebooks/Nacho/model_prediction.ipynb) notebook.
+
+
+
 #### Segmentation Model Conclusions 
 - The model has achieved  **75% accuracy**.
 - Through this project, we demonstrate the potential of deep learning in enhancing our ability to monitor and respond to wildfires. We invite you to explore our notebooks, replicate our findings, and contribute to this vital field of research.
