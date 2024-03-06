@@ -405,7 +405,7 @@ Below, in our developed application, we showcase the predictive capability of ou
 
 This model paves the way for further exploration of harnessing satellite imagery's metadata richness alongside deep learning models. The goal is to construct high-impact applications that contribute significantly to wildfire mitigation efforts.
 
-<img src="https://github.com/ColourDread/MyStuff/assets/149001130/96e5787e-8339-4953-971a-ba0f5b1d9d39" title="inference_class0" width="500" />
+<p align="center"><img src="https://github.com/ColourDread/MyStuff/assets/149001130/96e5787e-8339-4953-971a-ba0f5b1d9d39" title="inference_class0" width="500" /></p>
 
 Wildfire probability zones (marked on yellow)
 
