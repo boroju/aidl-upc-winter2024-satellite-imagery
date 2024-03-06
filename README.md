@@ -28,7 +28,7 @@ The project underscores **the importance of advanced AI in environmental protect
 1. [General Configuration:](#GeneralConfiguration)
 2. [Models](#Models)
 3. [Dealing with Satellite Imagery data is not easy at all](#DealingwithSatelliteImagerydataisnoteasyatall)
-4. [Experiments](#Experiments)
+4. [Models](#Models)
 5. [Final Conclusions](#FinalConclusions)
 6. [Future Usage](#FutureUsage)
 7. [Bibliography](#Bibliography)
@@ -60,23 +60,23 @@ We realized that constructing our satellite imagery dataset would be quite chall
 - [The Terra Moderate Resolution Imaging Spectroradiometer (MODIS) Thermal Anomalies and Fire 8-Day (MOD14A2) Version 6.1](https://lpdaac.usgs.gov/products/mod14a2v061/) 
 - [The Terra and Aqua combined MCD64A1 Version 6.1 Burned Area](https://lpdaac.usgs.gov/products/mcd64a1v061/)
 
-## 4. Experiments
+## 4. Models
 
-**Experiment A: Binary Classifier Model for Wildfire Risk Prediction**
+**Model A: Binary Classifier Model for Wildfire Risk Prediction**
 
-In Experiment A, we developed a binary classifier model dedicated to predicting wildfire risk. This initiative served as a backup plan, primarily driven by the considerable effort involved in data preparation for Experiment B. The complexity arose from working with the intricate GeoTIFF format and its metadata, adding a layer of intricacy to the project.
+In Model A, we developed a binary classifier model dedicated to predicting wildfire risk. This initiative served as a backup plan, primarily driven by the considerable effort involved in data preparation for Model B. The complexity arose from working with the intricate GeoTIFF format and its metadata, adding a layer of intricacy to the project.
 
-Although Experiment A showcases the application of deep learning for classification, it is presented primarily as a supportive effort. It highlights how deep learning can be employed for binary wildfire risk prediction, providing a comparative perspective against the main experiment's more complex challenges.
+Although Model A showcases the application of deep learning for classification, it is presented primarily as a supportive effort. It highlights how deep learning can be employed for binary wildfire risk prediction, providing a comparative perspective against the main model's more complex challenges.
 
-**Experiment B: Semantic Segmentation for Wildfire Prediction**
+**Model B: Semantic Segmentation for Wildfire Prediction**
 
-Experiment B represents the core of our innovation, focusing on semantic segmentation of satellite images to identify and predict wildfire-affected areas. Here, we trained a segmentation model, delving into the complexities of GeoTIFF formats, spatial metadata, and more.
+Model B represents the core of our innovation, focusing on semantic segmentation of satellite images to identify and predict wildfire-affected areas. Here, we trained a segmentation model, delving into the complexities of GeoTIFF formats, spatial metadata, and more.
 
-This experiment marks a novel application, showcasing the capability of deep learning for precise wildfire detection through semantic segmentation. While Experiment A provides valuable insights, Experiment B represents a significant leap forward, demonstrating a pioneering approach to wildfire prediction with our newly trained segmentation model.
+This model marks a novel application, showcasing the capability of deep learning for precise wildfire detection through semantic segmentation. While Model A provides valuable insights, Model B represents a significant leap forward, demonstrating a pioneering approach to wildfire prediction with our newly trained segmentation model.
 
 ---
 
-### Experiment A: Binary classifier model for wildfire risk prediction
+### Model A: Binary classifier model for wildfire risk prediction
 
 **Contents**
 
@@ -167,7 +167,7 @@ This led us to:
 
 1. Train the model faster (in just **27 minutes**).
 2. Work with around 40,000 images using local resources, thereby avoiding the usage of Google Drive storage, which is slow and problematic.
-3. Might be possible that the person who runs this experiment does not have an `Apple M1` computer. Keeping this in mind, we have provided the checkpoint model prediction validation option through a Google Colab notebook.
+3. Might be possible that the person who runs this model does not have an `Apple M1` computer. Keeping this in mind, we have provided the checkpoint model prediction validation option through a Google Colab notebook.
 
 **Evidence**
 
@@ -227,13 +227,13 @@ Model checkpoint is available [here](https://drive.google.com/file/d/1NTI68QrPzf
 
 **Accuracy**
 
-**MODEL CHECKPOINT ACCURACY FOR THIS EXPERIMENT IS: 93.65% 👌**
+**MODEL CHECKPOINT ACCURACY FOR THIS MODEL IS: 93.65% 👌**
 
 #### 5. Prediction
 
 **Easy execution**
 
-For the sake of simplicity while validating this experiment, we have created a straightforward **Google Colab notebook** that can be used to predict the class `{'nowildfire': 0, 'wildfire': 1}` of a given satellite image.
+For the sake of simplicity while validating this model, we have created a straightforward **Google Colab notebook** that can be used to predict the class `{'nowildfire': 0, 'wildfire': 1}` of a given satellite image.
 
 *   Notebook name: `Wildfire_BinClassifier_Notebook_Checkpoint_Predictions.ipynb`
 *   Available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/Wildfire_BinClassifier_Notebook_Checkpoint_Predictions.ipynb).
@@ -287,7 +287,7 @@ From a given satellite image with similar characteristics to the ones within the
 
 ---
 
-### Experiment B: Semantic segmentation on satellite images to identify and predict wildfire-affected areas
+### Model B: Semantic segmentation on satellite images to identify and predict wildfire-affected areas
 
 #### Dataset Overview
 We curated a **custom dataset** by incorporating imagery from the National Agriculture Imagery Program (NAIP) and the Moderate Resolution Imaging Spectroradiometer (MODIS) Fire and Thermal Anomalies datasets, retrieved through Google Earth Engine (GEE). The dataset encompasses:
@@ -388,13 +388,13 @@ These results showcase the model's capability to effectively learn from the data
 
 Below, in our developed application, we showcase the predictive capability of our segmentation model. Leveraging geographic coordinates, the model adeptly identifies areas at heightened risk of wildfire occurrence.
 
-This experiment paves the way for further exploration of harnessing satellite imagery's metadata richness alongside deep learning models. The goal is to construct high-impact applications that contribute significantly to wildfire mitigation efforts.
+This model paves the way for further exploration of harnessing satellite imagery's metadata richness alongside deep learning models. The goal is to construct high-impact applications that contribute significantly to wildfire mitigation efforts.
 
 ![image](https://github.com/ColourDread/MyStuff/assets/149001130/96e5787e-8339-4953-971a-ba0f5b1d9d39)
 
 Wildfire probability zones (marked on yellow)
 
-#### Segmentation Experiment Conclusions 
+#### Segmentation Model Conclusions 
 - The model has achieved  **75% accuracy**.
 - Through this project, we demonstrate the potential of deep learning in enhancing our ability to monitor and respond to wildfires. We invite you to explore our notebooks, replicate our findings, and contribute to this vital field of research.
 

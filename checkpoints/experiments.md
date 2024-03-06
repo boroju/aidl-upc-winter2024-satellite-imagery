@@ -1,4 +1,4 @@
-### Experiments results
+### Models results
 
 **Patch size: 256 Batch Size: 6 Sample Size: 4000**
 

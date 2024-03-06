@@ -52,7 +52,7 @@ In the initial phase of the project, we were uncertain about the feasibility of 
 
 We realized that constructing our satellite imagery dataset would be quite challenging. So, we decided to split the work force into two groups. One group would continue investigating the feasibility of building our own dataset, while the other group would find a curated dataset.
 
-# Experiments
+# Models
 ## Experiment A: Working with a curated dataset
 
 ## Contents
