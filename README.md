@@ -126,7 +126,7 @@ a) 0- nowildfire
 
 Sample images of nowildfire class:
 
-<p float="left">
+<p align="center">
   <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/nowildfire/-73.7181%2C45.486459.jpg" width="250" title="nowildfire_img_1" />
   <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/nowildfire/-73.8275%2C45.552381.jpg" width="250" title="nowildfire_img_2" />
 </p>
@@ -135,7 +135,7 @@ b) 1- wildfire
 
 Sample images of wildfire class:
 
-<p float="left">
+<p align="center">
   <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/wildfire/-60.9878%2C50.4112.jpg" width="250" title="wildfire_img_1" />
   <img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/img/kaggle_data/wildfire/-61.5607%2C50.52878.jpg" width="250" title="wildfire_img_2" />
 </p>
@@ -146,7 +146,7 @@ Sample images of wildfire class:
 
 Neural Network Architecture Diagram:
 
-<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/wildfire_bin_classifier/cnn_arch/diagram/wildfire_bin_classifier_archDiagram_v2.jpg" title="wildfire_bin_classifier_arch"  width="500" />
+<p align="center"><img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/resources/wildfire_bin_classifier/cnn_arch/diagram/wildfire_bin_classifier_archDiagram_v2.jpg" title="wildfire_bin_classifier_arch"  width="500"  /></p>
 
 Code is available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/model.py)
 
@@ -230,7 +230,7 @@ That would be all you need to do to set up the virtual environment and install t
 
 **Plot of Learning Curves**
 
-<img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/learning_curves.png" title="CNN_learning_curves" width="500" />
+<p align="center"><img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/checkpoints/learning_curves.png" title="CNN_learning_curves" width="500" /></p>
 
 **Checkpoint**
 
@@ -246,8 +246,7 @@ Model checkpoint is available [here](https://drive.google.com/file/d/1NTI68QrPzf
 
 For the sake of simplicity while validating this model, we have created a straightforward **Google Colab notebook** that can be used to predict the class `{'nowildfire': 0, 'wildfire': 1}` of a given satellite image.
 
-*   Notebook name: `Wildfire_BinClassifier_Notebook_Checkpoint_Predictions.ipynb`
-*   Available [here](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/Wildfire_BinClassifier_Notebook_Checkpoint_Predictions.ipynb).
+*   Notebook: [`Wildfire_BinClassifier_Notebook_Checkpoint_Predictions.ipynb`](https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/Wildfire_BinClassifier_Notebook_Checkpoint_Predictions.ipynb).
 
 **Further details**
 
@@ -257,6 +256,7 @@ Classes
 {'nowildfire': 0, 'wildfire': 1}
 ```
 
+<p align="center">
 <table>
         <tr>
             <td><img src="https://github.com/boroju/aidl-upc-winter2024-satellite-imagery/blob/main/app/with_curated_dataset/wildfire_bin_classifier/src/prediction/test_nw_-73.47513%2C45.58354.jpg" title="inference_class0" width="250" /></td>
@@ -275,6 +275,7 @@ Classes
             <td>Prediction: <b>`wildfire` ✅</b></td>
         </tr>
 </table>
+</p>
 
 **Application Code**
 
