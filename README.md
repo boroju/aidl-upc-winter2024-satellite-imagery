@@ -316,7 +316,7 @@ For the accurate identification of burned and not burned areas corresponding to 
     <em>Sample data points from Colorado wildfires manually labelled in GEE. </em>
 </p>
 
-* [Explore them live here:](https://code.earthengine.google.com/14d8f24db68ecd66d472a504a365382c?hideCode=true)
+* You can explore them in [Google Earth Engine](https://code.earthengine.google.com/14d8f24db68ecd66d472a504a365382c?hideCode=true).
 
 **Data Processing and Preparation**
 
